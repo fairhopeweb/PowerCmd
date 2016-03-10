@@ -6,22 +6,24 @@
         xmlns:local="clr-namespace:PowerCmd"
         mc:Ignorable="d"
         Title="PowerCmd" Height="500" Width="900" WindowStartupLocation="CenterScreen">
-    <Grid Margin="4">
+    <Grid Margin="8">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         
-        <TextBox x:Name="Output" Background="Black" Foreground="White" FontFamily="Courier New" TextWrapping="Wrap" IsReadOnly="True"
+        <TextBox x:Name="Output" Background="DarkGreen" Foreground="White" FontFamily="Courier New" TextWrapping="Wrap" IsReadOnly="True"
                  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
        
-        <TextBox Grid.Row="1" Margin="0,4,0,0" 
-                 KeyUp="Input_OnKeyUp"
-                 x:Name="Input"></TextBox>
+        <ComboBox Grid.Row="1" Margin="0,8,0,0" IsEditable="True" 
+                 KeyUp="Input_OnKeyUp" Background="DarkGreen" FontFamily="Courier New" FontSize="18"
+                 x:Name="Input" ItemsSource="{Binding History}"></ComboBox>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,4,0,0">
-            <Button Content="VS2015" Click="ButtonBase_OnClick"></Button>
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,8,0,0">
+            <Button Content="VS2015" Padding="8,4,8,4" Click="ButtonBase_OnClick" Margin="0,0,8,0"></Button>
+            <Button Content="VS2013" Padding="8,4,8,4" Click="ButtonBase_OnClick2" Margin="0,0,8,0"></Button>
+            <Button Content="VS2012" Padding="8,4,8,4" Click="ButtonBase_OnClick3" Margin="0,0,8,0"></Button>
         </StackPanel>
     </Grid>
 </Window>
