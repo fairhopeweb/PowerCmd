@@ -12,12 +12,12 @@
             <RowDefinition Height="Auto"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        
-        <TextBox x:Name="Output" Background="DarkGreen" Foreground="White" FontFamily="Courier New" TextWrapping="Wrap" IsReadOnly="True"
+
+        <TextBox x:Name="Output" Background="Black" Padding="8,0,8,8" Foreground="White" FontFamily="Courier New" TextWrapping="Wrap" IsReadOnly="True"
                  HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
        
-        <ComboBox Grid.Row="1" Margin="0,8,0,0" IsEditable="True" 
-                 KeyUp="Input_OnKeyUp" Background="DarkGreen" FontFamily="Courier New" FontSize="18"
+        <ComboBox Grid.Row="1" Margin="0,8,0,0" IsEditable="True"
+                 KeyUp="Input_OnKeyUp" FontFamily="Courier New" FontSize="18"
                  x:Name="Input" ItemsSource="{Binding History}"></ComboBox>
 
         <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,8,0,0">

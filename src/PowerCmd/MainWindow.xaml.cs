@@ -116,7 +116,7 @@ namespace PowerCmd
                 ApplicationSettings.SetSetting("CurrentDirectory", match.Groups[2].Value, false, true);
         }
 
-        private StringBuilder _output = new StringBuilder();
+        private StringBuilder _output = new StringBuilder("\n");
         private bool _updating = false;
 
         private void AddText(char[] buffer, int count)
