@@ -1,0 +1,15 @@
+﻿src/**/bin/**
+src/**/obj/**
+src/packages/**
+
+**.suo
+**.user
+**.DotSettings
+
+**.sln.ide/**
+**.vs/**
+
+[Bb]in/
+[Oo]bj/
+*.nugetreferenceswitcher
+/src/.vs/config
