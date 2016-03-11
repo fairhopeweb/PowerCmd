@@ -29,6 +29,8 @@ namespace PowerCmd.Views
 
             CheckForApplicationUpdate();
             LoadSettings();
+
+            Activated += (sender, args) => { Input.Focus(); };
         }
 
         private void LoadSettings()
