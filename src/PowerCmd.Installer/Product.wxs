@@ -3,7 +3,7 @@
     <Product Id="*" Name="PowerCmd" Language="1033"
              Version="!(bind.FileVersion.fil647AB095964D27951256CFFB2384505A)"
              Manufacturer="Rico Suter"
-             UpgradeCode="571BBE29-70A5-4062-B478-A8BA84A7F90A">
+             UpgradeCode="6B4CAF0B-E446-46C5-A12B-9622A172B635">
 
         <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
 
