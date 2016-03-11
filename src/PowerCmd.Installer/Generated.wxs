@@ -1,0 +1,460 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="RootDirectory" />
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="SourceComponentGroup">
+            <Component Id="cmp0AD7778AC85723AB7C1079D0D66319E0" Directory="RootDirectory" Guid="*">
+                <Class Id="{00AA9889-6698-3D63-AD65-B0ACFD541CEB}" Context="InprocServer32" Description="MyToolkit.Model.GraphObservableObject" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Model.GraphObservableObject" Description="MyToolkit.Model.GraphObservableObject" />
+                </Class>
+                <Class Id="{11C4F5C1-AB43-361A-8ADB-40E72BC62636}" Context="InprocServer32" Description="MyToolkit.Utilities.ReflectionUtilities" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Utilities.ReflectionUtilities" Description="MyToolkit.Utilities.ReflectionUtilities" />
+                </Class>
+                <Class Id="{14C87DB4-4E3D-3AA4-9BE2-88395D847033}" Context="InprocServer32" Description="MyToolkit.WorkflowEngine.WorkflowTransition" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.WorkflowEngine.WorkflowTransition" Description="MyToolkit.WorkflowEngine.WorkflowTransition" />
+                </Class>
+                <Class Id="{2244205F-488C-3CF3-AE3D-E87B748D070D}" Context="InprocServer32" Description="MyToolkit.MVVM.BaseViewModel" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.MVVM.BaseViewModel" Description="MyToolkit.MVVM.BaseViewModel" />
+                </Class>
+                <Class Id="{259A690C-2614-3C4D-A48D-109F3960F8DA}" Context="InprocServer32" Description="MyToolkit.Model.AsyncValidatedObservableObject" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Model.AsyncValidatedObservableObject" Description="MyToolkit.Model.AsyncValidatedObservableObject" />
+                </Class>
+                <Class Id="{28F054D2-4338-39F1-B23F-FFB74AE0562C}" Context="InprocServer32" Description="MyToolkit.Events.EventUtilities" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Events.EventUtilities" Description="MyToolkit.Events.EventUtilities" />
+                </Class>
+                <Class Id="{36A17BCF-81B6-314D-B389-3557B70389D5}" Context="InprocServer32" Description="MyToolkit.WorkflowEngine.WorkflowActivityOutput" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.WorkflowEngine.WorkflowActivityOutput" Description="MyToolkit.WorkflowEngine.WorkflowActivityOutput" />
+                </Class>
+                <Class Id="{3C77EEE8-E7B7-34F9-BF84-E0DA019454B8}" Context="InprocServer32" Description="MyToolkit.Composition.ServiceLocator" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Composition.ServiceLocator" Description="MyToolkit.Composition.ServiceLocator" />
+                </Class>
+                <Class Id="{3CE7192D-1B23-3AE3-A56A-E5480D50A372}" Context="InprocServer32" Description="MyToolkit.Utilities.TaskSynchronizationScope" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Utilities.TaskSynchronizationScope" Description="MyToolkit.Utilities.TaskSynchronizationScope" />
+                </Class>
+                <Class Id="{41BC28DE-8F90-36C2-957A-042BF659AA13}" Context="InprocServer32" Description="MyToolkit.WorkflowEngine.Activities.EmptyActivity" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.WorkflowEngine.Activities.EmptyActivity" Description="MyToolkit.WorkflowEngine.Activities.EmptyActivity" />
+                </Class>
+                <Class Id="{441257D8-27CC-316B-92BD-B0CB3DDB2AB5}" Context="InprocServer32" Description="MyToolkit.Messaging.GoBackMessage" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Messaging.GoBackMessage" Description="MyToolkit.Messaging.GoBackMessage" />
+                </Class>
+                <Class Id="{4991C29D-EAFC-3F8C-BEC2-5DEF3F913F14}" Context="InprocServer32" Description="MyToolkit.WorkflowEngine.WorkflowActivityBase" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.WorkflowEngine.WorkflowActivityBase" Description="MyToolkit.WorkflowEngine.WorkflowActivityBase" />
+                </Class>
+                <Class Id="{66C9FC7C-8501-3EFB-960F-A3EE198EFBA2}" Context="InprocServer32" Description="MyToolkit.MVVM.NotifyPropertyChanged" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.MVVM.NotifyPropertyChanged" Description="MyToolkit.MVVM.NotifyPropertyChanged" />
+                </Class>
+                <Class Id="{67251F9A-CD76-31ED-A78B-25AC4B1AFEC6}" Context="InprocServer32" Description="MyToolkit.Utilities.CodeContractExtensions+ValidatedNotNullAttribute" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Utilities.CodeContractExtensions+ValidatedNotNullAttribute" Description="MyToolkit.Utilities.CodeContractExtensions+ValidatedNotNullAttribute" />
+                </Class>
+                <Class Id="{76889FE3-8C41-3134-9ECE-BA3E46D20662}" Context="InprocServer32" Description="MyToolkit.WorkflowEngine.WorkflowDefinition" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.WorkflowEngine.WorkflowDefinition" Description="MyToolkit.WorkflowEngine.WorkflowDefinition" />
+                </Class>
+                <Class Id="{7C4F6195-6EDE-33F8-967A-CF95B3FA494C}" Context="InprocServer32" Description="MyToolkit.WorkflowEngine.Activities.ForkActivity" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.WorkflowEngine.Activities.ForkActivity" Description="MyToolkit.WorkflowEngine.Activities.ForkActivity" />
+                </Class>
+                <Class Id="{8089BFBA-1DC5-33FE-8EEA-8E0F958BF73E}" Context="InprocServer32" Description="MyToolkit.Composition.CompositionContext" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Composition.CompositionContext" Description="MyToolkit.Composition.CompositionContext" />
+                </Class>
+                <Class Id="{93719828-4B4D-3A96-80B2-E10150A82352}" Context="InprocServer32" Description="MyToolkit.Html.HtmlParser" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Html.HtmlParser" Description="MyToolkit.Html.HtmlParser" />
+                </Class>
+                <Class Id="{956C488D-B55B-3137-AC9F-78D7D994B9C3}" Context="InprocServer32" Description="MyToolkit.WorkflowEngine.CurrentActivitiesChangedEventArgs" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.WorkflowEngine.CurrentActivitiesChangedEventArgs" Description="MyToolkit.WorkflowEngine.CurrentActivitiesChangedEventArgs" />
+                </Class>
+                <Class Id="{9C69248B-2589-3D7F-8262-B8064460D723}" Context="InprocServer32" Description="MyToolkit.Model.ValidatedObservableObject" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Model.ValidatedObservableObject" Description="MyToolkit.Model.ValidatedObservableObject" />
+                </Class>
+                <Class Id="{9F5F1CD2-3200-394C-84A9-095E004B81DA}" Context="InprocServer32" Description="MyToolkit.WorkflowEngine.ActivityData" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.WorkflowEngine.ActivityData" Description="MyToolkit.WorkflowEngine.ActivityData" />
+                </Class>
+                <Class Id="{A6D153D9-FE4E-37F2-8BD9-D99FAC2E715D}" Context="InprocServer32" Description="MyToolkit.Utilities.ExpressionUtilities" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Utilities.ExpressionUtilities" Description="MyToolkit.Utilities.ExpressionUtilities" />
+                </Class>
+                <Class Id="{A73DCA89-5A45-33E5-912E-4C4FFF72C118}" Context="InprocServer32" Description="MyToolkit.Model.ExtendedObservableObject" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Model.ExtendedObservableObject" Description="MyToolkit.Model.ExtendedObservableObject" />
+                </Class>
+                <Class Id="{BCAE1F69-47B4-3B36-9C9A-E5C883F4C4D8}" Context="InprocServer32" Description="MyToolkit.Mvvm.ViewModelBase" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Mvvm.ViewModelBase" Description="MyToolkit.Mvvm.ViewModelBase" />
+                </Class>
+                <Class Id="{CA8455E4-1D75-3972-98EE-4F27AD0866FE}" Context="InprocServer32" Description="MyToolkit.WorkflowEngine.Activities.EmptyAutomaticActivity" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.WorkflowEngine.Activities.EmptyAutomaticActivity" Description="MyToolkit.WorkflowEngine.Activities.EmptyAutomaticActivity" />
+                </Class>
+                <Class Id="{CEE07152-ED3D-36EC-AD02-EDFB2483B48B}" Context="InprocServer32" Description="MyToolkit.Messaging.Messenger" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Messaging.Messenger" Description="MyToolkit.Messaging.Messenger" />
+                </Class>
+                <Class Id="{DB01A921-1A95-375E-90B8-CE2DE25EACDE}" Context="InprocServer32" Description="MyToolkit.Utilities.ExpressionHelper" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Utilities.ExpressionHelper" Description="MyToolkit.Utilities.ExpressionHelper" />
+                </Class>
+                <Class Id="{DF1B0FF3-D773-3BD5-8385-3FFE72FF1130}" Context="InprocServer32" Description="MyToolkit.IO.Utf8StringWriter" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.IO.Utf8StringWriter" Description="MyToolkit.IO.Utf8StringWriter" />
+                </Class>
+                <Class Id="{E36D9509-F488-3022-B4C0-DA6401B84A1D}" Context="InprocServer32" Description="MyToolkit.Model.ObservableObject" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Model.ObservableObject" Description="MyToolkit.Model.ObservableObject" />
+                </Class>
+                <Class Id="{F3CA34C9-EC18-3434-B563-45DCFA7AFC2E}" Context="InprocServer32" Description="MyToolkit.WorkflowEngine.WorkflowActivityInput" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.WorkflowEngine.WorkflowActivityInput" Description="MyToolkit.WorkflowEngine.WorkflowActivityInput" />
+                </Class>
+                <Class Id="{F457F670-E73B-3BB8-B4A3-9F2799159C6B}" Context="InprocServer32" Description="MyToolkit.Utilities.CommandProcessor" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.Utilities.CommandProcessor" Description="MyToolkit.Utilities.CommandProcessor" />
+                </Class>
+                <Class Id="{F5E418B6-7939-3279-90B4-43EF40666850}" Context="InprocServer32" Description="MyToolkit.WorkflowEngine.Activities.JoinActivity" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="MyToolkit.WorkflowEngine.Activities.JoinActivity" Description="MyToolkit.WorkflowEngine.Activities.JoinActivity" />
+                </Class>
+                <File Id="fil62CEF58587643A2DDA67E24E70D86586" KeyPath="yes" Source="$(var.SourcePath)\MyToolkit.dll" />
+                <ProgId Id="Record" />
+                <RegistryValue Root="HKCR" Key="CLSID\{00AA9889-6698-3D63-AD65-B0ACFD541CEB}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{00AA9889-6698-3D63-AD65-B0ACFD541CEB}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Model.GraphObservableObject" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{00AA9889-6698-3D63-AD65-B0ACFD541CEB}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{00AA9889-6698-3D63-AD65-B0ACFD541CEB}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{00AA9889-6698-3D63-AD65-B0ACFD541CEB}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{00AA9889-6698-3D63-AD65-B0ACFD541CEB}\InprocServer32" Name="Class" Value="MyToolkit.Model.GraphObservableObject" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{00AA9889-6698-3D63-AD65-B0ACFD541CEB}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{00AA9889-6698-3D63-AD65-B0ACFD541CEB}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{00AA9889-6698-3D63-AD65-B0ACFD541CEB}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{11C4F5C1-AB43-361A-8ADB-40E72BC62636}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{11C4F5C1-AB43-361A-8ADB-40E72BC62636}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Utilities.ReflectionUtilities" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{11C4F5C1-AB43-361A-8ADB-40E72BC62636}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{11C4F5C1-AB43-361A-8ADB-40E72BC62636}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{11C4F5C1-AB43-361A-8ADB-40E72BC62636}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{11C4F5C1-AB43-361A-8ADB-40E72BC62636}\InprocServer32" Name="Class" Value="MyToolkit.Utilities.ReflectionUtilities" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{11C4F5C1-AB43-361A-8ADB-40E72BC62636}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{11C4F5C1-AB43-361A-8ADB-40E72BC62636}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{11C4F5C1-AB43-361A-8ADB-40E72BC62636}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{14C87DB4-4E3D-3AA4-9BE2-88395D847033}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{14C87DB4-4E3D-3AA4-9BE2-88395D847033}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.WorkflowEngine.WorkflowTransition" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{14C87DB4-4E3D-3AA4-9BE2-88395D847033}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{14C87DB4-4E3D-3AA4-9BE2-88395D847033}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{14C87DB4-4E3D-3AA4-9BE2-88395D847033}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{14C87DB4-4E3D-3AA4-9BE2-88395D847033}\InprocServer32" Name="Class" Value="MyToolkit.WorkflowEngine.WorkflowTransition" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{14C87DB4-4E3D-3AA4-9BE2-88395D847033}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{14C87DB4-4E3D-3AA4-9BE2-88395D847033}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{14C87DB4-4E3D-3AA4-9BE2-88395D847033}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{2244205F-488C-3CF3-AE3D-E87B748D070D}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{2244205F-488C-3CF3-AE3D-E87B748D070D}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.MVVM.BaseViewModel" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{2244205F-488C-3CF3-AE3D-E87B748D070D}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{2244205F-488C-3CF3-AE3D-E87B748D070D}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{2244205F-488C-3CF3-AE3D-E87B748D070D}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{2244205F-488C-3CF3-AE3D-E87B748D070D}\InprocServer32" Name="Class" Value="MyToolkit.MVVM.BaseViewModel" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{2244205F-488C-3CF3-AE3D-E87B748D070D}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{2244205F-488C-3CF3-AE3D-E87B748D070D}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{2244205F-488C-3CF3-AE3D-E87B748D070D}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{259A690C-2614-3C4D-A48D-109F3960F8DA}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{259A690C-2614-3C4D-A48D-109F3960F8DA}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Model.AsyncValidatedObservableObject" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{259A690C-2614-3C4D-A48D-109F3960F8DA}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{259A690C-2614-3C4D-A48D-109F3960F8DA}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{259A690C-2614-3C4D-A48D-109F3960F8DA}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{259A690C-2614-3C4D-A48D-109F3960F8DA}\InprocServer32" Name="Class" Value="MyToolkit.Model.AsyncValidatedObservableObject" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{259A690C-2614-3C4D-A48D-109F3960F8DA}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{259A690C-2614-3C4D-A48D-109F3960F8DA}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{259A690C-2614-3C4D-A48D-109F3960F8DA}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{28F054D2-4338-39F1-B23F-FFB74AE0562C}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{28F054D2-4338-39F1-B23F-FFB74AE0562C}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Events.EventUtilities" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{28F054D2-4338-39F1-B23F-FFB74AE0562C}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{28F054D2-4338-39F1-B23F-FFB74AE0562C}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{28F054D2-4338-39F1-B23F-FFB74AE0562C}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{28F054D2-4338-39F1-B23F-FFB74AE0562C}\InprocServer32" Name="Class" Value="MyToolkit.Events.EventUtilities" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{28F054D2-4338-39F1-B23F-FFB74AE0562C}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{28F054D2-4338-39F1-B23F-FFB74AE0562C}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{28F054D2-4338-39F1-B23F-FFB74AE0562C}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{36A17BCF-81B6-314D-B389-3557B70389D5}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{36A17BCF-81B6-314D-B389-3557B70389D5}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.WorkflowEngine.WorkflowActivityOutput" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{36A17BCF-81B6-314D-B389-3557B70389D5}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{36A17BCF-81B6-314D-B389-3557B70389D5}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{36A17BCF-81B6-314D-B389-3557B70389D5}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{36A17BCF-81B6-314D-B389-3557B70389D5}\InprocServer32" Name="Class" Value="MyToolkit.WorkflowEngine.WorkflowActivityOutput" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{36A17BCF-81B6-314D-B389-3557B70389D5}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{36A17BCF-81B6-314D-B389-3557B70389D5}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{36A17BCF-81B6-314D-B389-3557B70389D5}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3C77EEE8-E7B7-34F9-BF84-E0DA019454B8}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3C77EEE8-E7B7-34F9-BF84-E0DA019454B8}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Composition.ServiceLocator" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3C77EEE8-E7B7-34F9-BF84-E0DA019454B8}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3C77EEE8-E7B7-34F9-BF84-E0DA019454B8}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3C77EEE8-E7B7-34F9-BF84-E0DA019454B8}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3C77EEE8-E7B7-34F9-BF84-E0DA019454B8}\InprocServer32" Name="Class" Value="MyToolkit.Composition.ServiceLocator" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3C77EEE8-E7B7-34F9-BF84-E0DA019454B8}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3C77EEE8-E7B7-34F9-BF84-E0DA019454B8}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3C77EEE8-E7B7-34F9-BF84-E0DA019454B8}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CE7192D-1B23-3AE3-A56A-E5480D50A372}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CE7192D-1B23-3AE3-A56A-E5480D50A372}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Utilities.TaskSynchronizationScope" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CE7192D-1B23-3AE3-A56A-E5480D50A372}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CE7192D-1B23-3AE3-A56A-E5480D50A372}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CE7192D-1B23-3AE3-A56A-E5480D50A372}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CE7192D-1B23-3AE3-A56A-E5480D50A372}\InprocServer32" Name="Class" Value="MyToolkit.Utilities.TaskSynchronizationScope" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CE7192D-1B23-3AE3-A56A-E5480D50A372}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CE7192D-1B23-3AE3-A56A-E5480D50A372}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{3CE7192D-1B23-3AE3-A56A-E5480D50A372}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{41BC28DE-8F90-36C2-957A-042BF659AA13}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{41BC28DE-8F90-36C2-957A-042BF659AA13}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.WorkflowEngine.Activities.EmptyActivity" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{41BC28DE-8F90-36C2-957A-042BF659AA13}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{41BC28DE-8F90-36C2-957A-042BF659AA13}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{41BC28DE-8F90-36C2-957A-042BF659AA13}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{41BC28DE-8F90-36C2-957A-042BF659AA13}\InprocServer32" Name="Class" Value="MyToolkit.WorkflowEngine.Activities.EmptyActivity" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{41BC28DE-8F90-36C2-957A-042BF659AA13}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{41BC28DE-8F90-36C2-957A-042BF659AA13}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{41BC28DE-8F90-36C2-957A-042BF659AA13}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{441257D8-27CC-316B-92BD-B0CB3DDB2AB5}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{441257D8-27CC-316B-92BD-B0CB3DDB2AB5}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Messaging.GoBackMessage" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{441257D8-27CC-316B-92BD-B0CB3DDB2AB5}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{441257D8-27CC-316B-92BD-B0CB3DDB2AB5}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{441257D8-27CC-316B-92BD-B0CB3DDB2AB5}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{441257D8-27CC-316B-92BD-B0CB3DDB2AB5}\InprocServer32" Name="Class" Value="MyToolkit.Messaging.GoBackMessage" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{441257D8-27CC-316B-92BD-B0CB3DDB2AB5}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{441257D8-27CC-316B-92BD-B0CB3DDB2AB5}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{441257D8-27CC-316B-92BD-B0CB3DDB2AB5}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4991C29D-EAFC-3F8C-BEC2-5DEF3F913F14}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4991C29D-EAFC-3F8C-BEC2-5DEF3F913F14}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.WorkflowEngine.WorkflowActivityBase" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4991C29D-EAFC-3F8C-BEC2-5DEF3F913F14}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4991C29D-EAFC-3F8C-BEC2-5DEF3F913F14}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4991C29D-EAFC-3F8C-BEC2-5DEF3F913F14}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4991C29D-EAFC-3F8C-BEC2-5DEF3F913F14}\InprocServer32" Name="Class" Value="MyToolkit.WorkflowEngine.WorkflowActivityBase" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4991C29D-EAFC-3F8C-BEC2-5DEF3F913F14}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4991C29D-EAFC-3F8C-BEC2-5DEF3F913F14}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{4991C29D-EAFC-3F8C-BEC2-5DEF3F913F14}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{66C9FC7C-8501-3EFB-960F-A3EE198EFBA2}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{66C9FC7C-8501-3EFB-960F-A3EE198EFBA2}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.MVVM.NotifyPropertyChanged" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{66C9FC7C-8501-3EFB-960F-A3EE198EFBA2}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{66C9FC7C-8501-3EFB-960F-A3EE198EFBA2}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{66C9FC7C-8501-3EFB-960F-A3EE198EFBA2}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{66C9FC7C-8501-3EFB-960F-A3EE198EFBA2}\InprocServer32" Name="Class" Value="MyToolkit.MVVM.NotifyPropertyChanged" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{66C9FC7C-8501-3EFB-960F-A3EE198EFBA2}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{66C9FC7C-8501-3EFB-960F-A3EE198EFBA2}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{66C9FC7C-8501-3EFB-960F-A3EE198EFBA2}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67251F9A-CD76-31ED-A78B-25AC4B1AFEC6}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67251F9A-CD76-31ED-A78B-25AC4B1AFEC6}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Utilities.CodeContractExtensions+ValidatedNotNullAttribute" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67251F9A-CD76-31ED-A78B-25AC4B1AFEC6}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67251F9A-CD76-31ED-A78B-25AC4B1AFEC6}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67251F9A-CD76-31ED-A78B-25AC4B1AFEC6}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67251F9A-CD76-31ED-A78B-25AC4B1AFEC6}\InprocServer32" Name="Class" Value="MyToolkit.Utilities.CodeContractExtensions+ValidatedNotNullAttribute" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67251F9A-CD76-31ED-A78B-25AC4B1AFEC6}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67251F9A-CD76-31ED-A78B-25AC4B1AFEC6}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{67251F9A-CD76-31ED-A78B-25AC4B1AFEC6}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{76889FE3-8C41-3134-9ECE-BA3E46D20662}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{76889FE3-8C41-3134-9ECE-BA3E46D20662}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.WorkflowEngine.WorkflowDefinition" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{76889FE3-8C41-3134-9ECE-BA3E46D20662}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{76889FE3-8C41-3134-9ECE-BA3E46D20662}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{76889FE3-8C41-3134-9ECE-BA3E46D20662}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{76889FE3-8C41-3134-9ECE-BA3E46D20662}\InprocServer32" Name="Class" Value="MyToolkit.WorkflowEngine.WorkflowDefinition" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{76889FE3-8C41-3134-9ECE-BA3E46D20662}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{76889FE3-8C41-3134-9ECE-BA3E46D20662}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{76889FE3-8C41-3134-9ECE-BA3E46D20662}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{7C4F6195-6EDE-33F8-967A-CF95B3FA494C}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{7C4F6195-6EDE-33F8-967A-CF95B3FA494C}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.WorkflowEngine.Activities.ForkActivity" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{7C4F6195-6EDE-33F8-967A-CF95B3FA494C}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{7C4F6195-6EDE-33F8-967A-CF95B3FA494C}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{7C4F6195-6EDE-33F8-967A-CF95B3FA494C}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{7C4F6195-6EDE-33F8-967A-CF95B3FA494C}\InprocServer32" Name="Class" Value="MyToolkit.WorkflowEngine.Activities.ForkActivity" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{7C4F6195-6EDE-33F8-967A-CF95B3FA494C}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{7C4F6195-6EDE-33F8-967A-CF95B3FA494C}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{7C4F6195-6EDE-33F8-967A-CF95B3FA494C}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8089BFBA-1DC5-33FE-8EEA-8E0F958BF73E}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8089BFBA-1DC5-33FE-8EEA-8E0F958BF73E}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Composition.CompositionContext" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8089BFBA-1DC5-33FE-8EEA-8E0F958BF73E}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8089BFBA-1DC5-33FE-8EEA-8E0F958BF73E}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8089BFBA-1DC5-33FE-8EEA-8E0F958BF73E}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8089BFBA-1DC5-33FE-8EEA-8E0F958BF73E}\InprocServer32" Name="Class" Value="MyToolkit.Composition.CompositionContext" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8089BFBA-1DC5-33FE-8EEA-8E0F958BF73E}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8089BFBA-1DC5-33FE-8EEA-8E0F958BF73E}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{8089BFBA-1DC5-33FE-8EEA-8E0F958BF73E}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{93719828-4B4D-3A96-80B2-E10150A82352}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{93719828-4B4D-3A96-80B2-E10150A82352}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Html.HtmlParser" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{93719828-4B4D-3A96-80B2-E10150A82352}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{93719828-4B4D-3A96-80B2-E10150A82352}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{93719828-4B4D-3A96-80B2-E10150A82352}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{93719828-4B4D-3A96-80B2-E10150A82352}\InprocServer32" Name="Class" Value="MyToolkit.Html.HtmlParser" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{93719828-4B4D-3A96-80B2-E10150A82352}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{93719828-4B4D-3A96-80B2-E10150A82352}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{93719828-4B4D-3A96-80B2-E10150A82352}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{956C488D-B55B-3137-AC9F-78D7D994B9C3}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{956C488D-B55B-3137-AC9F-78D7D994B9C3}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.WorkflowEngine.CurrentActivitiesChangedEventArgs" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{956C488D-B55B-3137-AC9F-78D7D994B9C3}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{956C488D-B55B-3137-AC9F-78D7D994B9C3}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{956C488D-B55B-3137-AC9F-78D7D994B9C3}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{956C488D-B55B-3137-AC9F-78D7D994B9C3}\InprocServer32" Name="Class" Value="MyToolkit.WorkflowEngine.CurrentActivitiesChangedEventArgs" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{956C488D-B55B-3137-AC9F-78D7D994B9C3}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{956C488D-B55B-3137-AC9F-78D7D994B9C3}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{956C488D-B55B-3137-AC9F-78D7D994B9C3}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9C69248B-2589-3D7F-8262-B8064460D723}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9C69248B-2589-3D7F-8262-B8064460D723}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Model.ValidatedObservableObject" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9C69248B-2589-3D7F-8262-B8064460D723}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9C69248B-2589-3D7F-8262-B8064460D723}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9C69248B-2589-3D7F-8262-B8064460D723}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9C69248B-2589-3D7F-8262-B8064460D723}\InprocServer32" Name="Class" Value="MyToolkit.Model.ValidatedObservableObject" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9C69248B-2589-3D7F-8262-B8064460D723}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9C69248B-2589-3D7F-8262-B8064460D723}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9C69248B-2589-3D7F-8262-B8064460D723}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9F5F1CD2-3200-394C-84A9-095E004B81DA}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9F5F1CD2-3200-394C-84A9-095E004B81DA}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.WorkflowEngine.ActivityData" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9F5F1CD2-3200-394C-84A9-095E004B81DA}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9F5F1CD2-3200-394C-84A9-095E004B81DA}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9F5F1CD2-3200-394C-84A9-095E004B81DA}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9F5F1CD2-3200-394C-84A9-095E004B81DA}\InprocServer32" Name="Class" Value="MyToolkit.WorkflowEngine.ActivityData" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9F5F1CD2-3200-394C-84A9-095E004B81DA}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9F5F1CD2-3200-394C-84A9-095E004B81DA}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9F5F1CD2-3200-394C-84A9-095E004B81DA}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A6D153D9-FE4E-37F2-8BD9-D99FAC2E715D}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A6D153D9-FE4E-37F2-8BD9-D99FAC2E715D}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Utilities.ExpressionUtilities" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A6D153D9-FE4E-37F2-8BD9-D99FAC2E715D}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A6D153D9-FE4E-37F2-8BD9-D99FAC2E715D}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A6D153D9-FE4E-37F2-8BD9-D99FAC2E715D}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A6D153D9-FE4E-37F2-8BD9-D99FAC2E715D}\InprocServer32" Name="Class" Value="MyToolkit.Utilities.ExpressionUtilities" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A6D153D9-FE4E-37F2-8BD9-D99FAC2E715D}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A6D153D9-FE4E-37F2-8BD9-D99FAC2E715D}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A6D153D9-FE4E-37F2-8BD9-D99FAC2E715D}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A73DCA89-5A45-33E5-912E-4C4FFF72C118}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A73DCA89-5A45-33E5-912E-4C4FFF72C118}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Model.ExtendedObservableObject" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A73DCA89-5A45-33E5-912E-4C4FFF72C118}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A73DCA89-5A45-33E5-912E-4C4FFF72C118}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A73DCA89-5A45-33E5-912E-4C4FFF72C118}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A73DCA89-5A45-33E5-912E-4C4FFF72C118}\InprocServer32" Name="Class" Value="MyToolkit.Model.ExtendedObservableObject" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A73DCA89-5A45-33E5-912E-4C4FFF72C118}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A73DCA89-5A45-33E5-912E-4C4FFF72C118}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{A73DCA89-5A45-33E5-912E-4C4FFF72C118}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BCAE1F69-47B4-3B36-9C9A-E5C883F4C4D8}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BCAE1F69-47B4-3B36-9C9A-E5C883F4C4D8}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Mvvm.ViewModelBase" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BCAE1F69-47B4-3B36-9C9A-E5C883F4C4D8}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BCAE1F69-47B4-3B36-9C9A-E5C883F4C4D8}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BCAE1F69-47B4-3B36-9C9A-E5C883F4C4D8}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BCAE1F69-47B4-3B36-9C9A-E5C883F4C4D8}\InprocServer32" Name="Class" Value="MyToolkit.Mvvm.ViewModelBase" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BCAE1F69-47B4-3B36-9C9A-E5C883F4C4D8}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BCAE1F69-47B4-3B36-9C9A-E5C883F4C4D8}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{BCAE1F69-47B4-3B36-9C9A-E5C883F4C4D8}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CA8455E4-1D75-3972-98EE-4F27AD0866FE}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CA8455E4-1D75-3972-98EE-4F27AD0866FE}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.WorkflowEngine.Activities.EmptyAutomaticActivity" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CA8455E4-1D75-3972-98EE-4F27AD0866FE}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CA8455E4-1D75-3972-98EE-4F27AD0866FE}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CA8455E4-1D75-3972-98EE-4F27AD0866FE}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CA8455E4-1D75-3972-98EE-4F27AD0866FE}\InprocServer32" Name="Class" Value="MyToolkit.WorkflowEngine.Activities.EmptyAutomaticActivity" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CA8455E4-1D75-3972-98EE-4F27AD0866FE}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CA8455E4-1D75-3972-98EE-4F27AD0866FE}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CA8455E4-1D75-3972-98EE-4F27AD0866FE}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CEE07152-ED3D-36EC-AD02-EDFB2483B48B}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CEE07152-ED3D-36EC-AD02-EDFB2483B48B}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Messaging.Messenger" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CEE07152-ED3D-36EC-AD02-EDFB2483B48B}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CEE07152-ED3D-36EC-AD02-EDFB2483B48B}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CEE07152-ED3D-36EC-AD02-EDFB2483B48B}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CEE07152-ED3D-36EC-AD02-EDFB2483B48B}\InprocServer32" Name="Class" Value="MyToolkit.Messaging.Messenger" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CEE07152-ED3D-36EC-AD02-EDFB2483B48B}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CEE07152-ED3D-36EC-AD02-EDFB2483B48B}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{CEE07152-ED3D-36EC-AD02-EDFB2483B48B}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DB01A921-1A95-375E-90B8-CE2DE25EACDE}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DB01A921-1A95-375E-90B8-CE2DE25EACDE}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Utilities.ExpressionHelper" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DB01A921-1A95-375E-90B8-CE2DE25EACDE}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DB01A921-1A95-375E-90B8-CE2DE25EACDE}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DB01A921-1A95-375E-90B8-CE2DE25EACDE}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DB01A921-1A95-375E-90B8-CE2DE25EACDE}\InprocServer32" Name="Class" Value="MyToolkit.Utilities.ExpressionHelper" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DB01A921-1A95-375E-90B8-CE2DE25EACDE}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DB01A921-1A95-375E-90B8-CE2DE25EACDE}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DB01A921-1A95-375E-90B8-CE2DE25EACDE}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DF1B0FF3-D773-3BD5-8385-3FFE72FF1130}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DF1B0FF3-D773-3BD5-8385-3FFE72FF1130}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.IO.Utf8StringWriter" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DF1B0FF3-D773-3BD5-8385-3FFE72FF1130}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DF1B0FF3-D773-3BD5-8385-3FFE72FF1130}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DF1B0FF3-D773-3BD5-8385-3FFE72FF1130}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DF1B0FF3-D773-3BD5-8385-3FFE72FF1130}\InprocServer32" Name="Class" Value="MyToolkit.IO.Utf8StringWriter" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DF1B0FF3-D773-3BD5-8385-3FFE72FF1130}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DF1B0FF3-D773-3BD5-8385-3FFE72FF1130}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{DF1B0FF3-D773-3BD5-8385-3FFE72FF1130}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E36D9509-F488-3022-B4C0-DA6401B84A1D}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E36D9509-F488-3022-B4C0-DA6401B84A1D}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Model.ObservableObject" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E36D9509-F488-3022-B4C0-DA6401B84A1D}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E36D9509-F488-3022-B4C0-DA6401B84A1D}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E36D9509-F488-3022-B4C0-DA6401B84A1D}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E36D9509-F488-3022-B4C0-DA6401B84A1D}\InprocServer32" Name="Class" Value="MyToolkit.Model.ObservableObject" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E36D9509-F488-3022-B4C0-DA6401B84A1D}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E36D9509-F488-3022-B4C0-DA6401B84A1D}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{E36D9509-F488-3022-B4C0-DA6401B84A1D}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F3CA34C9-EC18-3434-B563-45DCFA7AFC2E}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F3CA34C9-EC18-3434-B563-45DCFA7AFC2E}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.WorkflowEngine.WorkflowActivityInput" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F3CA34C9-EC18-3434-B563-45DCFA7AFC2E}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F3CA34C9-EC18-3434-B563-45DCFA7AFC2E}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F3CA34C9-EC18-3434-B563-45DCFA7AFC2E}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F3CA34C9-EC18-3434-B563-45DCFA7AFC2E}\InprocServer32" Name="Class" Value="MyToolkit.WorkflowEngine.WorkflowActivityInput" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F3CA34C9-EC18-3434-B563-45DCFA7AFC2E}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F3CA34C9-EC18-3434-B563-45DCFA7AFC2E}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F3CA34C9-EC18-3434-B563-45DCFA7AFC2E}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F457F670-E73B-3BB8-B4A3-9F2799159C6B}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F457F670-E73B-3BB8-B4A3-9F2799159C6B}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.Utilities.CommandProcessor" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F457F670-E73B-3BB8-B4A3-9F2799159C6B}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F457F670-E73B-3BB8-B4A3-9F2799159C6B}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F457F670-E73B-3BB8-B4A3-9F2799159C6B}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F457F670-E73B-3BB8-B4A3-9F2799159C6B}\InprocServer32" Name="Class" Value="MyToolkit.Utilities.CommandProcessor" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F457F670-E73B-3BB8-B4A3-9F2799159C6B}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F457F670-E73B-3BB8-B4A3-9F2799159C6B}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F457F670-E73B-3BB8-B4A3-9F2799159C6B}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F5E418B6-7939-3279-90B4-43EF40666850}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F5E418B6-7939-3279-90B4-43EF40666850}\InprocServer32\2.5.11.0" Name="Class" Value="MyToolkit.WorkflowEngine.Activities.JoinActivity" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F5E418B6-7939-3279-90B4-43EF40666850}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F5E418B6-7939-3279-90B4-43EF40666850}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F5E418B6-7939-3279-90B4-43EF40666850}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F5E418B6-7939-3279-90B4-43EF40666850}\InprocServer32" Name="Class" Value="MyToolkit.WorkflowEngine.Activities.JoinActivity" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F5E418B6-7939-3279-90B4-43EF40666850}\InprocServer32" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F5E418B6-7939-3279-90B4-43EF40666850}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F5E418B6-7939-3279-90B4-43EF40666850}\InprocServer32" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{459680E9-880F-3D30-A04C-91F5B546A735}\2.5.11.0" Name="Class" Value="MyToolkit.Messaging.MessageButton" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{459680E9-880F-3D30-A04C-91F5B546A735}\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{459680E9-880F-3D30-A04C-91F5B546A735}\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{459680E9-880F-3D30-A04C-91F5B546A735}\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{7286A3D8-FD85-3462-AC22-ED110D6F8CBF}\2.5.11.0" Name="Class" Value="MyToolkit.Messaging.MessageResult" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{7286A3D8-FD85-3462-AC22-ED110D6F8CBF}\2.5.11.0" Name="Assembly" Value="MyToolkit, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{7286A3D8-FD85-3462-AC22-ED110D6F8CBF}\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{7286A3D8-FD85-3462-AC22-ED110D6F8CBF}\2.5.11.0" Name="CodeBase" Value="file:///[#fil62CEF58587643A2DDA67E24E70D86586]" Type="string" Action="write" />
+            </Component>
+            <Component Id="cmpCED5B7488C31D594E13DDD9CAB74BFD8" Directory="RootDirectory" Guid="*">
+                <Class Id="{EBC25CF6-9120-4283-B972-0E5520D0000C}" Context="InprocServer32" Description="Ionic.Crc.CRC32" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Ionic.Crc.CRC32" Description="Ionic.Crc.CRC32" />
+                </Class>
+                <Class Id="{EBC25CF6-9120-4283-B972-0E5520D0000D}" Context="InprocServer32" Description="Ionic.Zlib.ZlibCodec" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="Ionic.Zlib.ZlibCodec" Description="Ionic.Zlib.ZlibCodec" />
+                </Class>
+                <File Id="fil29681523F6C5F6494E9C0C2613364952" KeyPath="yes" Source="$(var.SourcePath)\MyToolkit.Extended.dll" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000C}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000C}\InprocServer32\2.5.11.0" Name="Class" Value="Ionic.Crc.CRC32" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000C}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit.Extended, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000C}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000C}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil29681523F6C5F6494E9C0C2613364952]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000C}\InprocServer32" Name="Class" Value="Ionic.Crc.CRC32" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000C}\InprocServer32" Name="Assembly" Value="MyToolkit.Extended, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000C}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000C}\InprocServer32" Name="CodeBase" Value="file:///[#fil29681523F6C5F6494E9C0C2613364952]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000D}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000D}\InprocServer32\2.5.11.0" Name="Class" Value="Ionic.Zlib.ZlibCodec" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000D}\InprocServer32\2.5.11.0" Name="Assembly" Value="MyToolkit.Extended, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000D}\InprocServer32\2.5.11.0" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000D}\InprocServer32\2.5.11.0" Name="CodeBase" Value="file:///[#fil29681523F6C5F6494E9C0C2613364952]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000D}\InprocServer32" Name="Class" Value="Ionic.Zlib.ZlibCodec" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000D}\InprocServer32" Name="Assembly" Value="MyToolkit.Extended, Version=2.5.11.0, Culture=neutral, PublicKeyToken=3e349a1360994d26" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000D}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{EBC25CF6-9120-4283-B972-0E5520D0000D}\InprocServer32" Name="CodeBase" Value="file:///[#fil29681523F6C5F6494E9C0C2613364952]" Type="string" Action="write" />
+            </Component>
+            <Component Id="cmp5DA04D879E472CDB59610C78E2C06D67" Directory="RootDirectory" Guid="*">
+                <File Id="fil9DE1E33FF998D56AD5CDDBB114A9D14E" KeyPath="yes" Source="$(var.SourcePath)\MyToolkit.Extended.xml" />
+            </Component>
+            <Component Id="cmp31D065AFFB2F9C455FBCDC62BD6A0282" Directory="RootDirectory" Guid="*">
+                <File Id="fil2E9070A107598B8FB198EFBCF6062E75" KeyPath="yes" Source="$(var.SourcePath)\MyToolkit.xml" />
+            </Component>
+            <Component Id="cmp98651A93113FE7911DDD8D9C46B07EFC" Directory="RootDirectory" Guid="*">
+                <File Id="fil647AB095964D27951256CFFB2384505A" KeyPath="yes" Source="$(var.SourcePath)\PowerCmd.exe" />
+            </Component>
+            <Component Id="cmpBC1C80AD27DA44B230ECB65C55C918DA" Directory="RootDirectory" Guid="*">
+                <File Id="filB47849AA9DAC7CCA50C3165B7BC26469" KeyPath="yes" Source="$(var.SourcePath)\PowerCmd.exe.config" />
+            </Component>
+            <Component Id="cmpC31404DC5170E6EBBECD4CFE0419587F" Directory="RootDirectory" Guid="*">
+                <File Id="filEDED8FBEE1B72A70D1885FFAA9F26153" KeyPath="yes" Source="$(var.SourcePath)\PowerCmd.pdb" />
+            </Component>
+            <Component Id="cmp30EFA54344D0C046997E62AD5C239D62" Directory="RootDirectory" Guid="*">
+                <File Id="fil67305253050B54458FBB6A51C1573014" KeyPath="yes" Source="$(var.SourcePath)\PowerCmd.vshost.exe" />
+            </Component>
+            <Component Id="cmpB24AE2837C8A4D86237F4E13892363A9" Directory="RootDirectory" Guid="*">
+                <File Id="fil640D11CC844BB623F73FB988A429FD7B" KeyPath="yes" Source="$(var.SourcePath)\PowerCmd.vshost.exe.config" />
+            </Component>
+            <Component Id="cmp7E5DF610D81088F7E29435E06E748F82" Directory="RootDirectory" Guid="*">
+                <File Id="fil9BB62FC3FB0AD55A80389348F5269484" KeyPath="yes" Source="$(var.SourcePath)\PowerCmd.vshost.exe.manifest" />
+            </Component>
+            <Component Id="cmp291EC323399F1BB1FD8B90B715D20AF7" Directory="RootDirectory" Guid="*">
+                <File Id="filAE83680E6D651421C71B17A1D7C0C4AE" KeyPath="yes" Source="$(var.SourcePath)\PowerCmd.zip" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

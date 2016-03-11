@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
@@ -13,9 +14,6 @@ using PowerCmd.ViewModels;
 
 namespace PowerCmd.Views
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
         private int _maxTextLength = 1024 * 128;
@@ -27,9 +25,6 @@ namespace PowerCmd.Views
 
             Loaded += OnLoaded;
             Closed += OnClosed;
-
-            DataContext = this;
-            //Input.Loaded += myCombo_Loaded;
 
             CheckForApplicationUpdate();
         }
@@ -46,13 +41,6 @@ namespace PowerCmd.Views
 
         public MainWindowModel Model => (MainWindowModel)Resources["Model"];
 
-        //private void myCombo_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        //{
-        //    ControlTemplate ct = Input.Template;
-        //    Popup pop = ct.FindName("PART_Popup", Input) as Popup;
-        //    pop.Placement = PlacementMode.Top;
-        //}
-
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
         {
             var currentDirectory = ApplicationSettings.GetSetting("CurrentDirectory", "C:/");
@@ -66,39 +54,16 @@ namespace PowerCmd.Views
 
             Input.Focus();
 
-            _process = Process.Start(new ProcessStartInfo("cmd.exe")
-            {
-                CreateNoWindow = true,
-                UseShellExecute = false,
+            CreateCmdProcess();
+            RegisterStandardOutputListener();
+            RegisterStandardErrorListener();
+        }
 
-                RedirectStandardOutput = true,
-                RedirectStandardInput = true,
-                RedirectStandardError = true
-            });
-
-            _process.EnableRaisingEvents = true;
-
-            var outputThread = new Thread(new ParameterizedThreadStart(delegate
-            {
-                var buffer = new char[1024 * 512];
-                while (true)
-                {
-                    var count = _process.StandardOutput.Read(buffer, 0, buffer.Length);
-                    AddText(buffer, count, false);
-                }
-            }));
-            outputThread.IsBackground = true;
-            outputThread.Start();
-
-
-            AppDomain.CurrentDomain.ProcessExit += (s, eventArgs) =>
-            {
-                Environment.Exit(0);
-            };
-
+        private void RegisterStandardErrorListener()
+        {
             var errorThread = new Thread(new ParameterizedThreadStart(delegate
             {
-                var buffer = new char[1024 * 512];
+                var buffer = new char[1024*512];
                 while (true)
                 {
                     var count = _process.StandardError.Read(buffer, 0, buffer.Length);
@@ -107,7 +72,35 @@ namespace PowerCmd.Views
             }));
             errorThread.IsBackground = true;
             errorThread.Start();
+        }
 
+        private void RegisterStandardOutputListener()
+        {
+            var outputThread = new Thread(new ParameterizedThreadStart(delegate
+            {
+                var buffer = new char[1024*512];
+                while (true)
+                {
+                    var count = _process.StandardOutput.Read(buffer, 0, buffer.Length);
+                    AddText(buffer, count, false);
+                }
+            }));
+            outputThread.IsBackground = true;
+            outputThread.Start();
+        }
+
+        private void CreateCmdProcess()
+        {
+            _process = Process.Start(new ProcessStartInfo("cmd.exe")
+            {
+                CreateNoWindow = true,
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                RedirectStandardInput = true,
+                RedirectStandardError = true
+            });
+
+            _process.EnableRaisingEvents = true;
             _process.Exited += (s, eventArgs) =>
             {
                 Dispatcher.InvokeAsync(() =>
@@ -124,7 +117,7 @@ namespace PowerCmd.Views
                 ApplicationSettings.SetSetting("CurrentDirectory", match.Groups[2].Value, false, true);
         }
 
-        private StringBuilder _output = new StringBuilder("\n", 4 * 1024 * 1024);
+        private readonly StringBuilder _output = new StringBuilder("\n", 4 * 1024 * 1024);
         private bool _updating = false;
 
         private void AddText(char[] buffer, int count, bool isError)
@@ -180,16 +173,15 @@ namespace PowerCmd.Views
         {
             if (e.Key == Key.Enter)
             {
+                var commandButton = Model.CommandButtons.FirstOrDefault(b => b.Alias == Input.Text.ToLowerInvariant());
+                if (commandButton != null)
+                    Input.Text = commandButton.Text;
+
                 if (WriteCommand(Input.Text))
                     Input.Text = "";
             }
         }
-
-        public void RunCommand(CommandButton commandButton)
-        {
-            WriteCommand(commandButton.Text);
-        }
-
+        
         private bool WriteCommand(string command)
         {
             if (!Model.IsRunning)
@@ -204,7 +196,7 @@ namespace PowerCmd.Views
         private void OnCommandButtonClicked(object sender, RoutedEventArgs e)
         {
             var command = (CommandButton)((Button) sender).Tag;
-            RunCommand(command);
+            WriteCommand(command.Text);
             Input.Focus();
         }
     }

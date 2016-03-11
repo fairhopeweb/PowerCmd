@@ -47,7 +47,17 @@
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
                         <Button Tag="{Binding}" Content="{Binding Title}" Click="OnCommandButtonClicked"
-                                Padding="8,4,8,4" Margin="0,0,8,0" />
+                                Padding="8,4,8,4" Margin="0,0,8,0">
+                            <Button.ToolTip>
+                                <TextBlock>
+                                    <Run Text="Alias: " />
+                                    <Run Text="{Binding Alias, Mode=OneWay}" />
+                                    <LineBreak />
+                                    <Run Text="Command: " />
+                                    <Run Text="{Binding Text, Mode=OneWay}" />
+                                </TextBlock>
+                            </Button.ToolTip>
+                        </Button>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>

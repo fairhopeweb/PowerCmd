@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModels\CommandButton.cs" />
     <Compile Include="ViewModels\CommandExecutionInfo.cs" />
     <Compile Include="ViewModels\MainWindowModel.cs" />
     <Page Include="Views\MainWindow.xaml">

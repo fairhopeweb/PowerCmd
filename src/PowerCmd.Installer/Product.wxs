@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Product Id="*" Name="PowerCmd" Language="1033"
+             Version="!(bind.FileVersion.fil647AB095964D27951256CFFB2384505A)"
+             Manufacturer="Rico Suter"
+             UpgradeCode="571BBE29-70A5-4062-B478-A8BA84A7F90A">
+
+        <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+        <MajorUpgrade AllowSameVersionUpgrades="yes"
+                      DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+        <MediaTemplate EmbedCab="yes" />
+
+        <Feature Id="ProductFeature" Title="Installer" Level="1">
+            <ComponentGroupRef Id="SourceComponentGroup" />
+            <ComponentRef Id="ApplicationComponent" />
+        </Feature>
+
+        <UI>
+            <UIRef Id="WixUI_InstallDir" />
+            <UIRef Id="WixUI_ErrorProgressText" />
+
+            <Publish Dialog="WelcomeDlg" Control="Next" Event="NewDialog" Value="PrepareDlg" Order="3">1</Publish>
+            <Publish Dialog="PrepareDlg" Control="Back" Event="NewDialog" Value="WelcomeDlg" Order="3">1</Publish>
+            <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction"
+                     Value="LaunchApplication">WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed</Publish>
+        </UI>
+
+        <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Launch PowerCmd" />
+
+        <Property Id="WixShellExecTarget" Value="[#fil647AB095964D27951256CFFB2384505A]" />
+        <CustomAction Id="LaunchApplication"
+                      BinaryKey="WixCA"
+                      DllEntry="WixShellExec"
+                      Impersonate="yes" />
+    </Product>
+    <Fragment>
+        <Directory Id="TARGETDIR" Name="SourceDir">
+            <Directory Id="ProgramFilesFolder">
+                <Directory Id="INSTALLFOLDER" Name="Rico Suter" />
+            </Directory>
+            <Directory Id="ProgramMenuFolder">
+                <Directory Id="ApplicationProgramsFolder"
+                           Name="Rico Suter"/>
+            </Directory>
+        </Directory>
+
+        <DirectoryRef Id="INSTALLFOLDER">
+            <Directory Id="RootDirectory" Name="PowerCmd" />
+        </DirectoryRef>
+
+        <InstallExecuteSequence>
+            <RemoveShortcuts>0</RemoveShortcuts>
+        </InstallExecuteSequence>
+
+        <DirectoryRef Id="ApplicationProgramsFolder">
+            <Component Id="ApplicationComponent">
+                <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+                <RemoveFolder Id="ManufacturerProgramsFolder" On="uninstall"/>
+
+                <RegistryValue Root="HKCU"
+                               Key="Software\RicoSuter\PowerCmd"
+                               Name="installed" Type="integer"
+                               Value="1" KeyPath="yes"/>
+
+                <Shortcut Id="ApplicationStartMenuShortcut"          
+                          Name="PowerCmd"
+                          Description="PowerCmd"
+                          Target="[#fil647AB095964D27951256CFFB2384505A]"
+                          WorkingDirectory="RootDirectory"/>
+
+                <RemoveFile Id="RemoveShortcut"
+                            Name="PowerCmd"
+                            On="uninstall" />
+            </Component>
+        </DirectoryRef>
+    </Fragment>
+</Wix>

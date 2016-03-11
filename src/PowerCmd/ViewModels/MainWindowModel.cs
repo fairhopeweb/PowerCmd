@@ -8,13 +8,6 @@ using MyToolkit.Mvvm;
 
 namespace PowerCmd.ViewModels
 {
-    public class CommandButton
-    {
-        public string Title { get; set; }
-
-        public string Text { get; set; }
-    }
-
     public class MainWindowModel : ViewModelBase
     {
         private string _currentWorkingDirectory;
@@ -27,6 +20,22 @@ namespace PowerCmd.ViewModels
 
         public ICommand OpenCurrentWorkingDirectoryInExplorerCommand { get; private set; }
 
+        public ObservableCollection<CommandExecutionInfo> CommandHistory { get; } = new ObservableCollection<CommandExecutionInfo>();
+
+        public ObservableCollection<CommandButton> CommandButtons { get; } = new ObservableCollection<CommandButton>
+        {
+            new CommandButton { Title = "VS2015", Alias = "vs2015", Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\VsDevCmd.bat""" },
+            new CommandButton { Title = "VS2013", Alias = "vs2013", Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\VsDevCmd.bat""" },
+            new CommandButton { Title = "VS2012", Alias = "vs2012", Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools\VsDevCmd.bat""" }
+        };
+
+        /// <summary>Gets or sets the currentWorkingDirectory. </summary>
+        public string CurrentWorkingDirectory
+        {
+            get { return _currentWorkingDirectory; }
+            set { Set(ref _currentWorkingDirectory, value); }
+        }
+
         /// <summary>Gets or sets a value indicating whether a command is running. </summary>
         public bool IsRunning
         {
@@ -36,23 +45,6 @@ namespace PowerCmd.ViewModels
                 if (Set(ref _isRunning, value))
                     LastCommand?.Complete();
             }
-        }
-
-
-        public ObservableCollection<CommandExecutionInfo> CommandHistory { get; } = new ObservableCollection<CommandExecutionInfo>();
-
-        public ObservableCollection<CommandButton> CommandButtons { get; } = new ObservableCollection<CommandButton>
-        {
-            new CommandButton { Title = "VS2015", Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\VsDevCmd.bat""" },
-            new CommandButton { Title = "VS2013", Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\VsDevCmd.bat""" },
-            new CommandButton { Title = "VS2012", Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools\VsDevCmd.bat""" }
-        };
-
-        /// <summary>Gets or sets the currentWorkingDirectory. </summary>
-        public string CurrentWorkingDirectory
-        {
-            get { return _currentWorkingDirectory; }
-            set { Set(ref _currentWorkingDirectory, value); }
         }
 
         /// <summary>Gets or sets the last command. </summary>
