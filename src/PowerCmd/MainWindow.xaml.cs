@@ -72,7 +72,7 @@ namespace PowerCmd
 
             var outputThread = new Thread(new ParameterizedThreadStart(delegate
             {
-                var buffer = new char[1024 * 128];
+                var buffer = new char[1024 * 512];
                 while (true)
                 {
                     var count = _process.StandardOutput.Read(buffer, 0, buffer.Length);
@@ -90,7 +90,7 @@ namespace PowerCmd
 
             var errorThread = new Thread(new ParameterizedThreadStart(delegate
             {
-                var buffer = new char[1024 * 128];
+                var buffer = new char[1024 * 512];
                 while (true)
                 {
                     var count = _process.StandardError.Read(buffer, 0, buffer.Length);
@@ -116,7 +116,7 @@ namespace PowerCmd
                 ApplicationSettings.SetSetting("CurrentDirectory", match.Groups[2].Value, false, true);
         }
 
-        private StringBuilder _output = new StringBuilder("\n");
+        private StringBuilder _output = new StringBuilder("\n", 4 * 1024 * 1024);
         private bool _updating = false;
 
         private void AddText(char[] buffer, int count)
