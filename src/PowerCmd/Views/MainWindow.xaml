@@ -90,22 +90,22 @@
                     <TextBlock Margin="0,0,0,8" Text="{Binding LastCommand.StartTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
                                Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
 
-                    <TextBlock Text="Duration" FontWeight="Bold" Margin="0,0,0,4"/>
-                    <StackPanel Margin="0,0,0,8">
-                        <TextBlock Text="Running..." 
-                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource VisibilityConverter}}"
-                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-                        <TextBlock Text="{Binding LastCommand.Duration, Converter={StaticResource TimeSpanConverter}, ConverterParameter='seconds,plain'}" 
-                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}"
-                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-                    </StackPanel>
-
                     <TextBlock Text="End time" FontWeight="Bold" Margin="0,0,0,4" />
                     <StackPanel Margin="0,0,0,8">
                         <TextBlock Text="Running..." 
                                    Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource VisibilityConverter}}"
                                    Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
                         <TextBlock Text="{Binding LastCommand.EndTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
+                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}"
+                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                    </StackPanel>
+
+                    <TextBlock Text="Duration" FontWeight="Bold" Margin="0,0,0,4"/>
+                    <StackPanel Margin="0,0,0,8">
+                        <TextBlock Text="Running..." 
+                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource VisibilityConverter}}"
+                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                        <TextBlock Text="{Binding LastCommand.Duration, Converter={StaticResource TimeSpanConverter}, ConverterParameter='seconds,plain'}" 
                                    Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}"
                                    Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
                     </StackPanel>
