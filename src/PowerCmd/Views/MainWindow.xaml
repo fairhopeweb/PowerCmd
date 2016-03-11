@@ -3,13 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:PowerCmd"
         xmlns:viewModels="clr-namespace:PowerCmd.ViewModels"
         xmlns:converters="clr-namespace:MyToolkit.Converters;assembly=MyToolkit.Extended"
-        xmlns:views="clr-namespace:PowerCmd.Views"
         xmlns:converters1="clr-namespace:PowerCmd.Converters"
-        mc:Ignorable="d"
+        mc:Ignorable="d" MinWidth="600" MinHeight="500"
         Title="PowerCmd" Height="500" Width="900" WindowStartupLocation="CenterScreen">
+    
     <Window.Resources>
         <viewModels:MainWindowModel x:Key="Model"/>
         <converters:NotConverter x:Key="NotConverter" />
@@ -40,17 +39,17 @@
                       KeyUp="OnInputKeyUp" FontFamily="Courier New" FontSize="18"
                       x:Name="Input" ItemsSource="{Binding CommandHistory}" DisplayMemberPath="Command"></ComboBox>
 
-            <StackPanel Grid.Row="2" Margin="0,8,0,0">
+            <StackPanel Grid.Row="2" Margin="0,8,0,-8">
                 <ItemsControl ItemsSource="{Binding CommandButtons}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <StackPanel Orientation="Horizontal" />
+                            <WrapPanel Orientation="Horizontal" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Button Tag="{Binding}" Content="{Binding Title}" Click="OnCommandButtonClicked"
-                                    Padding="8,4,8,4" Margin="0,0,8,0" Focusable="False">
+                                    Padding="8,4,8,4" Margin="0,0,8,8" Focusable="False">
                                 <Button.ToolTip>
                                     <TextBlock>
                                     <Run Text="Alias: " />
