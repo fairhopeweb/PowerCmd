@@ -11,6 +11,7 @@ namespace PowerCmd.ViewModels
 {
     public class MainWindowModel : ViewModelBase
     {
+        private ObservableCollection<CommandButton> _commandButtons;
         private string _currentWorkingDirectory;
         private bool _isRunning;
 
@@ -23,12 +24,12 @@ namespace PowerCmd.ViewModels
 
         public ObservableCollection<CommandExecutionInfo> CommandHistory { get; } = new ObservableCollection<CommandExecutionInfo>();
 
-        public ObservableCollection<CommandButton> CommandButtons { get; } = new ObservableCollection<CommandButton>
+        /// <summary>Gets or sets the command buttons. </summary>
+        public ObservableCollection<CommandButton> CommandButtons
         {
-            new CommandButton { Title = "VS2015", Alias = "vs2015", Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\VsDevCmd.bat""" },
-            new CommandButton { Title = "VS2013", Alias = "vs2013", Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\VsDevCmd.bat""" },
-            new CommandButton { Title = "VS2012", Alias = "vs2012", Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools\VsDevCmd.bat""" }
-        };
+            get { return _commandButtons; }
+            set { Set(ref _commandButtons, value); }
+        }
 
         /// <summary>Gets or sets the currentWorkingDirectory. </summary>
         public string CurrentWorkingDirectory
@@ -56,9 +57,12 @@ namespace PowerCmd.ViewModels
 
         public void RunCommand(string command)
         {
-            IsRunning = true; 
-            CommandHistory.Insert(0, new CommandExecutionInfo(command, CurrentWorkingDirectory));
-            RaisePropertyChanged(() => LastCommand);
+            if (!IsRunning)
+            {
+                IsRunning = true;
+                CommandHistory.Insert(0, new CommandExecutionInfo(command, CurrentWorkingDirectory));
+                RaisePropertyChanged(() => LastCommand);
+            }
         }
 
         private void OpenCurrentWorkingDirectoryInExplorer()

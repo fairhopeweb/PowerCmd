@@ -7,6 +7,7 @@
         xmlns:viewModels="clr-namespace:PowerCmd.ViewModels"
         xmlns:converters="clr-namespace:MyToolkit.Converters;assembly=MyToolkit.Extended"
         xmlns:views="clr-namespace:PowerCmd.Views"
+        xmlns:converters1="clr-namespace:PowerCmd.Converters"
         mc:Ignorable="d"
         Title="PowerCmd" Height="500" Width="900" WindowStartupLocation="CenterScreen">
     <Window.Resources>
@@ -15,7 +16,7 @@
         <converters:VisibilityConverter x:Key="VisibilityConverter" />
         <converters:DateTimeConverter x:Key="DateTimeConverter" />
         <converters:TimeSpanConverter x:Key="TimeSpanConverter" />
-        <views:ErrorBrushConverter x:Key="ErrorBrushConverter" />
+        <converters1:ErrorBrushConverter x:Key="ErrorBrushConverter" />
     </Window.Resources>
 
     <Grid DataContext="{StaticResource Model}" Margin="8">
@@ -23,7 +24,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
@@ -31,11 +32,12 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <TextBox x:Name="Output" Background="Black" Padding="8,0,8,8" Foreground="White" FontFamily="Courier New" TextWrapping="Wrap" IsReadOnly="True"
-                 HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
+            <TextBox x:Name="Output" Background="Black" Padding="8,0,8,8" Foreground="White" 
+                     FontFamily="Courier New" TextWrapping="Wrap" IsReadOnly="True"
+                     HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
 
             <ComboBox Grid.Row="1" Margin="0,8,0,0" IsEditable="True"
-                      KeyUp="Input_OnKeyUp" FontFamily="Courier New" FontSize="18"
+                      KeyUp="OnInputKeyUp" FontFamily="Courier New" FontSize="18"
                       x:Name="Input" ItemsSource="{Binding CommandHistory}" DisplayMemberPath="Command"></ComboBox>
 
             <StackPanel Grid.Row="2" Margin="0,8,0,0">
@@ -48,7 +50,7 @@
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Button Tag="{Binding}" Content="{Binding Title}" Click="OnCommandButtonClicked"
-                                Padding="8,4,8,4" Margin="0,0,8,0">
+                                    Padding="8,4,8,4" Margin="0,0,8,0" Focusable="False">
                                 <Button.ToolTip>
                                     <TextBlock>
                                     <Run Text="Alias: " />
@@ -64,50 +66,61 @@
                 </ItemsControl>
             </StackPanel>
         </Grid>
-        
+
         <Grid Grid.Column="1" Width="240" Margin="8,0,0,0">
             <StackPanel>
-                <StackPanel Margin="0,0,0,8">
-                    <TextBlock Text="Current Working Directory" FontWeight="Bold"></TextBlock>
-                    <TextBlock Text="{Binding CurrentWorkingDirectory}" />
-                    <Button Content="Open in Explorer"
+                <StackPanel Margin="0,0,0,16">
+                    <TextBlock Text="Current Working Directory" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />
+                    <TextBlock Text="{Binding CurrentWorkingDirectory}" Margin="0,0,0,4" />
+                    <Button Content="Open in Explorer" Focusable="False"
                             Margin="0,4,0,0" Padding="8,4,8,4"
                             Command="{Binding OpenCurrentWorkingDirectoryInExplorerCommand}"></Button>
                 </StackPanel>
-                                
+
                 <StackPanel Visibility="{Binding LastCommand, Converter={StaticResource VisibilityConverter}}">
-                    <TextBlock Text="Command" FontWeight="Bold" FontSize="16"></TextBlock>
-                    <TextBlock Text="{Binding LastCommand.Command}" FontWeight="Bold" 
-                               Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-                    
-                    <TextBlock Text="Working Directory" FontWeight="Bold"></TextBlock>
-                    <TextBlock Text="{Binding LastCommand.WorkingDirectory}" 
+                    <TextBlock Text="Command" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />
+                    <TextBlock Text="{Binding LastCommand.Command}" FontWeight="Bold" Margin="0,0,0,8"
                                Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
 
-                    <TextBlock Text="Start time" FontWeight="Bold"></TextBlock>
-                    <TextBlock Text="{Binding LastCommand.StartTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
+                    <TextBlock Text="Working Directory" FontWeight="Bold" Margin="0,0,0,4" />
+                    <TextBlock Text="{Binding LastCommand.WorkingDirectory}" Margin="0,0,0,8"
                                Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
 
-                    <TextBlock Text="Duration" FontWeight="Bold"></TextBlock>
-                    <TextBlock Text="Running..." 
-                               Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource VisibilityConverter}}"
-                               Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-                    <TextBlock Text="{Binding LastCommand.Duration, Converter={StaticResource TimeSpanConverter}, ConverterParameter='seconds,plain'}" 
-                               Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}"
+                    <TextBlock Text="Start time" FontWeight="Bold" Margin="0,0,0,4"/>
+                    <TextBlock Margin="0,0,0,8" Text="{Binding LastCommand.StartTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
                                Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
 
-                    <TextBlock Text="End time" FontWeight="Bold"></TextBlock>
-                    <TextBlock Text="Running..." 
-                               Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource VisibilityConverter}}"
-                               Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-                    <TextBlock Text="{Binding LastCommand.EndTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
-                               Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}"
-                               Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                    <TextBlock Text="Duration" FontWeight="Bold" Margin="0,0,0,4"/>
+                    <StackPanel Margin="0,0,0,8">
+                        <TextBlock Text="Running..." 
+                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource VisibilityConverter}}"
+                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                        <TextBlock Text="{Binding LastCommand.Duration, Converter={StaticResource TimeSpanConverter}, ConverterParameter='seconds,plain'}" 
+                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}"
+                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                    </StackPanel>
+
+                    <TextBlock Text="End time" FontWeight="Bold" Margin="0,0,0,4" />
+                    <StackPanel Margin="0,0,0,8">
+                        <TextBlock Text="Running..." 
+                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource VisibilityConverter}}"
+                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                        <TextBlock Text="{Binding LastCommand.EndTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
+                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}"
+                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                    </StackPanel>
                 </StackPanel>
             </StackPanel>
 
-            <TextBlock Text="{Binding ApplicationVersion}" 
-                       VerticalAlignment="Bottom" HorizontalAlignment="Right" />
+            <StackPanel VerticalAlignment="Bottom">
+                <Button Content="Save Command Buttons" Focusable="False"
+                            Margin="0,4,0,0" Padding="8,4,8,4"
+                            Click="OnSaveCommandButtons"></Button>
+                <Button Content="Load Command Buttons" Focusable="False"
+                            Margin="0,4,0,0" Padding="8,4,8,4"
+                            Click="OnLoadCommandButtons"></Button>
+                <TextBlock Margin="0,8,0,0" HorizontalAlignment="Right" Text="{Binding ApplicationVersion}" />
+            </StackPanel>
         </Grid>
     </Grid>
 </Window>
