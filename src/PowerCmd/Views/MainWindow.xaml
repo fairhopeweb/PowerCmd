@@ -48,8 +48,15 @@
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Button Tag="{Binding}" Content="{Binding Title}" Click="OnCommandButtonClicked"
+                            <Button Tag="{Binding}" Click="OnCommandButtonClicked"
                                     Padding="8,4,8,4" Margin="0,0,8,8" Focusable="False">
+                                <Button.Content>
+                                    <TextBlock>
+                                        <Run Text="{Binding Title, Mode=OneWay}" FontWeight="Bold"></Run>
+                                        <LineBreak></LineBreak>
+                                        <Run Text="{Binding Subtitle, Mode=OneWay}"></Run>
+                                    </TextBlock>
+                                </Button.Content>
                                 <Button.ToolTip>
                                     <TextBlock>
                                     <Run Text="Alias: " />

@@ -60,18 +60,21 @@ namespace PowerCmd.Views
                 new CommandButton
                 {
                     Title = "VS2015",
+                    Subtitle = "Developer Prompt",
                     Alias = "vs2015",
                     Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\VsDevCmd.bat"""
                 },
                 new CommandButton
                 {
                     Title = "VS2013",
+                    Subtitle = "Developer Prompt",
                     Alias = "vs2013",
                     Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\VsDevCmd.bat"""
                 },
                 new CommandButton
                 {
                     Title = "VS2012",
+                    Subtitle = "Developer Prompt",
                     Alias = "vs2012",
                     Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools\VsDevCmd.bat"""
                 }
