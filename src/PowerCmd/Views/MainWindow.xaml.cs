@@ -1,26 +1,17 @@
-﻿using MyToolkit.Storage;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using MyToolkit.Storage;
+using MyToolkit.Utilities;
+using PowerCmd.ViewModels;
 
-namespace PowerCmd
+namespace PowerCmd.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -29,8 +20,6 @@ namespace PowerCmd
     {
         private int _maxTextLength = 1024 * 128;
         private Process _process;
-
-        public ObservableCollection<string> History { get; } = new ObservableCollection<string>();
 
         public MainWindow()
         {
@@ -41,7 +30,21 @@ namespace PowerCmd
 
             DataContext = this;
             //Input.Loaded += myCombo_Loaded;
+
+            CheckForApplicationUpdate();
         }
+
+        private async void CheckForApplicationUpdate()
+        {
+            var updater = new ApplicationUpdater(
+                "PowerCmd.msi",
+                GetType().Assembly,
+                "http://rsuter.com/Projects/PowerCmd/updates.php");
+
+            await updater.CheckForUpdate(this);
+        }
+
+        public MainWindowModel Model => (MainWindowModel)Resources["Model"];
 
         //private void myCombo_Loaded(object sender, System.Windows.RoutedEventArgs e)
         //{
@@ -54,7 +57,12 @@ namespace PowerCmd
         {
             var currentDirectory = ApplicationSettings.GetSetting("CurrentDirectory", "C:/");
             if (Directory.Exists(currentDirectory))
+            {
                 Directory.SetCurrentDirectory(currentDirectory);
+                Model.CurrentWorkingDirectory = currentDirectory;
+            }
+            else
+                Model.CurrentWorkingDirectory = Directory.GetCurrentDirectory();
 
             Input.Focus();
 
@@ -76,7 +84,7 @@ namespace PowerCmd
                 while (true)
                 {
                     var count = _process.StandardOutput.Read(buffer, 0, buffer.Length);
-                    AddText(buffer, count);
+                    AddText(buffer, count, false);
                 }
             }));
             outputThread.IsBackground = true;
@@ -94,7 +102,7 @@ namespace PowerCmd
                 while (true)
                 {
                     var count = _process.StandardError.Read(buffer, 0, buffer.Length);
-                    AddText(buffer, count);
+                    AddText(buffer, count, true);
                 }
             }));
             errorThread.IsBackground = true;
@@ -119,7 +127,7 @@ namespace PowerCmd
         private StringBuilder _output = new StringBuilder("\n", 4 * 1024 * 1024);
         private bool _updating = false;
 
-        private void AddText(char[] buffer, int count)
+        private void AddText(char[] buffer, int count, bool isError)
         {
             lock (_output)
             {
@@ -130,12 +138,24 @@ namespace PowerCmd
 
                     Dispatcher.InvokeAsync(() =>
                     {
+                        if (Model.LastCommand != null && isError)
+                            Model.LastCommand.HasErrors = true; 
+
                         var text = "";
                         lock (_output)
                         {
                             text = _output.Length > _maxTextLength ? _output.ToString(_output.Length - _maxTextLength, _maxTextLength) : _output.ToString();
                             _updating = false;
                         }
+
+                        var currentWorkingDirectory = TryFindCurrentWorkingDirectory(text);
+                        if (currentWorkingDirectory != null)
+                        {
+                            Model.CurrentWorkingDirectory = currentWorkingDirectory;
+                            Model.IsRunning = false;
+                        }
+                        else
+                            Model.IsRunning = true; 
 
                         Output.Text = text;
                         Output.ScrollToEnd();
@@ -144,57 +164,48 @@ namespace PowerCmd
             }
         }
 
+        private string TryFindCurrentWorkingDirectory(string text)
+        {
+            var match = Regex.Match(text, "^.*?(\n(.*))>$", RegexOptions.Multiline);
+            if (match.Success)
+            {
+                var path = match.Groups[2].Value; 
+                if (Directory.Exists(path))
+                    return path;
+            }
+            return null;
+        }
+
         private void Input_OnKeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
-                WriteCommand(Input.Text);
-                Input.Text = "";
+                if (WriteCommand(Input.Text))
+                    Input.Text = "";
             }
         }
 
-        public void RunCommand(Command command)
+        public void RunCommand(CommandButton commandButton)
         {
-            WriteCommand(command.Text);
+            WriteCommand(commandButton.Text);
         }
 
-        private void WriteCommand(string command)
+        private bool WriteCommand(string command)
         {
-            History.Insert(0, command);
-            _process.StandardInput.WriteLine(command);
-        }
-
-        private void ButtonBase_OnClick(object sender, RoutedEventArgs e)
-        {
-            RunCommand(new Command
+            if (!Model.IsRunning)
             {
-                Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\Tools\VsDevCmd.bat"""
-            });
+                _process.StandardInput.WriteLine(command);
+                Model.RunCommand(command);
+                return true; 
+            }
+            return false; 
+        }
+        
+        private void OnCommandButtonClicked(object sender, RoutedEventArgs e)
+        {
+            var command = (CommandButton)((Button) sender).Tag;
+            RunCommand(command);
             Input.Focus();
         }
-        private void ButtonBase_OnClick2(object sender, RoutedEventArgs e)
-        {
-            RunCommand(new Command
-            {
-                Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\Tools\VsDevCmd.bat"""
-            });
-            Input.Focus();
-        }
-
-        private void ButtonBase_OnClick3(object sender, RoutedEventArgs e)
-        {
-            RunCommand(new Command
-            {
-                Text = @"""C:\Program Files (x86)\Microsoft Visual Studio 11.0\Common7\Tools\VsDevCmd.bat"""
-            });
-            Input.Focus();
-        }
-    }
-
-    public class Command
-    {
-        public string Title { get; set; }
-
-        public string Text { get; set; }
     }
 }
