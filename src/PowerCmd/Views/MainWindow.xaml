@@ -38,32 +38,34 @@
                       KeyUp="Input_OnKeyUp" FontFamily="Courier New" FontSize="18"
                       x:Name="Input" ItemsSource="{Binding CommandHistory}" DisplayMemberPath="Command"></ComboBox>
 
-            <ItemsControl ItemsSource="{Binding CommandButtons}" Grid.Row="2" Margin="0,8,0,0">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Button Tag="{Binding}" Content="{Binding Title}" Click="OnCommandButtonClicked"
+            <StackPanel Grid.Row="2" Margin="0,8,0,0">
+                <ItemsControl ItemsSource="{Binding CommandButtons}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Button Tag="{Binding}" Content="{Binding Title}" Click="OnCommandButtonClicked"
                                 Padding="8,4,8,4" Margin="0,0,8,0">
-                            <Button.ToolTip>
-                                <TextBlock>
+                                <Button.ToolTip>
+                                    <TextBlock>
                                     <Run Text="Alias: " />
                                     <Run Text="{Binding Alias, Mode=OneWay}" />
                                     <LineBreak />
                                     <Run Text="Command: " />
                                     <Run Text="{Binding Text, Mode=OneWay}" />
-                                </TextBlock>
-                            </Button.ToolTip>
-                        </Button>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
+                                    </TextBlock>
+                                </Button.ToolTip>
+                            </Button>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
         </Grid>
         
-        <Grid Grid.Column="1" Width="200" Margin="8,0,0,0">
+        <Grid Grid.Column="1" Width="240" Margin="8,0,0,0">
             <StackPanel>
                 <StackPanel Margin="0,0,0,8">
                     <TextBlock Text="Current Working Directory" FontWeight="Bold"></TextBlock>
@@ -103,6 +105,9 @@
                                Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
                 </StackPanel>
             </StackPanel>
+
+            <TextBlock Text="{Binding ApplicationVersion}" 
+                       VerticalAlignment="Bottom" HorizontalAlignment="Right" />
         </Grid>
     </Grid>
 </Window>

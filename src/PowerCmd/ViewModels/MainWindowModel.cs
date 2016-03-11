@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Input;
 using MyToolkit.Command;
 using MyToolkit.Mvvm;
+using MyToolkit.Utilities;
 
 namespace PowerCmd.ViewModels
 {
@@ -49,6 +50,9 @@ namespace PowerCmd.ViewModels
 
         /// <summary>Gets or sets the last command. </summary>
         public CommandExecutionInfo LastCommand => CommandHistory.Any() ? CommandHistory.First() : null;
+
+        /// <summary>Gets the application version with build time. </summary>
+        public string ApplicationVersion => "v" + GetType().Assembly.GetVersionWithBuildTime();
 
         public void RunCommand(string command)
         {
