@@ -1,0 +1,13 @@
+version: '{build}'
+configuration: Release
+platform: Any CPU
+before_build:
+- cmd: nuget restore src/PowerCmd.sln
+build:
+  verbosity: minimal
+artifacts:
+- path: src\PowerCmd\bin\Release
+  name: PowerCmd
+- path: src\PowerCmd\Properties\AssemblyInfo.cs
+- path: src\PowerCmd.Installer\bin\Release\PowerCmd.msi
+  name: PowerCmd.msi
