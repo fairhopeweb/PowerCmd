@@ -155,12 +155,17 @@ namespace PowerCmd.ViewModels
                     Color = Colors.Orange,
                     Value = ReadMsBuildCounter("Warning").ToString()
                 });
+
+                var errors = ReadMsBuildCounter("Error"); 
                 Results.Add(new CommandExecutionResult
                 {
                     Key = "Errors",
                     Color = Colors.Red,
-                    Value = ReadMsBuildCounter("Error").ToString()
+                    Value = errors.ToString()
                 });
+
+                if (errors > 0 || Output.Contains("Build FAILED."))
+                    HasErrors = true; 
             }
         }
 
