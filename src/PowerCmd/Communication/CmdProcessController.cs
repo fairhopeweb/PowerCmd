@@ -51,11 +51,11 @@ namespace PowerCmd.Communication
                 while (true)
                 {
                     var count = _process.StandardOutput.Read(buffer, 0, buffer.Length);
-
                     lock (_output)
+                    {
                         _output.Append(buffer, 0, count);
-
-                    AppendOutput(new string(buffer, 0, count));
+                        AppendOutput(new string(buffer, 0, count));
+                    }
                 }
 
             }));
@@ -72,10 +72,12 @@ namespace PowerCmd.Communication
                 {
                     var count = _process.StandardError.Read(buffer, 0, buffer.Length);
                     OnError();
-                    lock (_output)
-                        _output.Append(buffer, 0, count);
 
-                    AppendOutput(new string(buffer, 0, count));
+                    lock (_output)
+                    {
+                        _output.Append(buffer, 0, count);
+                        AppendOutput(new string(buffer, 0, count));
+                    }
                 }
             }));
             errorThread.IsBackground = true;
