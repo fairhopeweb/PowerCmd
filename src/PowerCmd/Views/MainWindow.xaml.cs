@@ -204,6 +204,8 @@ namespace PowerCmd.Views
 
         private async void AppendOutputDirectly(string output)
         {
+            Model.LastCommand?.AppendOutput(output);
+
             var currentWorkingDirectory = TryFindCurrentWorkingDirectory(output);
             if (currentWorkingDirectory != null)
             {
@@ -212,7 +214,6 @@ namespace PowerCmd.Views
             }
             else
                 Model.IsRunning = true;
-            Model.LastCommand?.AppendOutput(output);
 
             Output.BeginChange();
             Output.AppendText(output);
