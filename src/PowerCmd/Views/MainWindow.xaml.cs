@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
@@ -111,7 +112,7 @@ namespace PowerCmd.Views
             else
                 Model.CurrentWorkingDirectory = Directory.GetCurrentDirectory();
 
-            _cmdProcessController = new UiCmdProcessController(this, Model, Dispatcher);
+            _cmdProcessController = new UiCmdProcessController(this, Model);
             _cmdProcessController.Run();
         }
 
@@ -171,11 +172,55 @@ namespace PowerCmd.Views
             Input.Focus();
         }
 
-        private bool _updateRequested = false;
-        private string _updatedOutput = "";
-        private DateTime _lastUpdate = DateTime.MinValue;
+        //private bool _updateRequested = false;
+        //private readonly StringBuilder _outputCache = new StringBuilder();
+        //private DateTime _lastUpdate = DateTime.MinValue;
 
         public async void AppendOutput(string output)
+        {
+            await Dispatcher.InvokeAsync(() =>
+            {
+                AppendOutputDirectly(output);
+            });
+
+            //lock (this)
+            //    _outputCache.Append(output);
+
+            //await Dispatcher.InvokeAsync( async () =>
+            //{
+            //    if ((DateTime.Now - _lastUpdate).TotalMilliseconds > 300)
+            //    {
+            //        AppendCachedOutput();
+            //        _lastUpdate = DateTime.Now;
+            //    }
+            //    else if (!_updateRequested)
+            //    {
+            //        lock (this)
+            //            _updateRequested = true;
+
+            //        await Task.Delay(300);
+            //        AppendCachedOutput();
+            //    }
+            //});
+        }
+
+        //private void AppendCachedOutput()
+        //{
+        //    var output = "";
+        //    lock (this)
+        //    {
+        //        _updateRequested = false;
+        //        output = _outputCache.ToString();
+        //        _outputCache.Clear();
+        //    }
+
+        //    if (output == string.Empty)
+        //        return;
+
+        //    AppendOutputDirectly(output);
+        //}
+
+        private void AppendOutputDirectly(string output)
         {
             var currentWorkingDirectory = TryFindCurrentWorkingDirectory(output);
             if (currentWorkingDirectory != null)
@@ -187,30 +232,17 @@ namespace PowerCmd.Views
                 Model.IsRunning = true;
             Model.LastCommand?.AppendOutput(output);
 
-            if ((DateTime.Now - _lastUpdate).TotalMilliseconds > 300)
-            {
-                Output.AppendText(output);
-                Output.ScrollToEnd();
-
-                _lastUpdate = DateTime.Now;
-            }
-            else if (!_updateRequested)
-            {
-                _updatedOutput += output;
-                _updateRequested = true;
-
-                await Task.Delay(300);
-                _updateRequested = false;
-                AppendOutput(_updatedOutput);
-                _updatedOutput = "";
-            }
-            else
-                _updatedOutput += output;
+            Output.BeginChange();
+            Output.AppendText(output);
+            if (Output.Document.TextLength > _maxOutputLength)
+                Output.Document.Remove(0, Output.Document.TextLength - _maxOutputLength);
+            Output.EndChange();
+            Output.ScrollToEnd();
         }
 
         private string TryFindCurrentWorkingDirectory(string text)
         {
-            var match = Regex.Match(text, "^.*?(\n(.*))>$", RegexOptions.Multiline);
+            var match = Regex.Match("\n" + text, "^.*?(\n(.*))>$", RegexOptions.Multiline);
             if (match.Success)
             {
                 var path = match.Groups[2].Value;

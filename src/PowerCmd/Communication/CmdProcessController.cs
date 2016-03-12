@@ -8,17 +8,10 @@ namespace PowerCmd.Communication
 {
     public abstract class CmdProcessController
     {
-        private readonly IDispatcher _dispatcher;
         private readonly StringBuilder _output = new StringBuilder("\n", 4 * 1024 * 1024);
-
         private Process _process;
 
-        public CmdProcessController(IDispatcher dispatcher)
-        {
-            _dispatcher = dispatcher;
-        }
-
-        public abstract void OnOutputAppended(string output);
+        protected abstract void AppendOutput(string output);
 
         public abstract void OnClose();
 
@@ -41,12 +34,12 @@ namespace PowerCmd.Communication
             try
             {
                 _process.StandardInput.WriteLine(command);
-                return true; 
+                return true;
             }
             catch (Exception exception)
             {
                 Debug.WriteLine(exception.ToString());
-                return false; 
+                return false;
             }
         }
 
@@ -58,7 +51,11 @@ namespace PowerCmd.Communication
                 while (true)
                 {
                     var count = _process.StandardOutput.Read(buffer, 0, buffer.Length);
-                    AppendOutput(buffer, count);
+
+                    lock (_output)
+                        _output.Append(buffer, 0, count);
+
+                    AppendOutput(new string(buffer, 0, count));
                 }
 
             }));
@@ -74,8 +71,11 @@ namespace PowerCmd.Communication
                 while (true)
                 {
                     var count = _process.StandardError.Read(buffer, 0, buffer.Length);
-                    _dispatcher.InvokeAsync(OnError);
-                    AppendOutput(buffer, count);
+                    OnError();
+                    lock (_output)
+                        _output.Append(buffer, 0, count);
+
+                    AppendOutput(new string(buffer, 0, count));
                 }
             }));
             errorThread.IsBackground = true;
@@ -96,17 +96,8 @@ namespace PowerCmd.Communication
             _process.EnableRaisingEvents = true;
             _process.Exited += (s, eventArgs) =>
             {
-                _dispatcher.InvokeAsync(OnClose);
+                OnClose();
             };
-        }
-
-        private void AppendOutput(char[] buffer, int count)
-        {
-            lock (_output)
-            {
-                _output.Append(buffer, 0, count);
-                OnOutputAppended(new string(buffer, 0, count));
-            }
         }
     }
 }

@@ -6,6 +6,7 @@
         xmlns:viewModels="clr-namespace:PowerCmd.ViewModels"
         xmlns:converters="clr-namespace:MyToolkit.Converters;assembly=MyToolkit.Extended"
         xmlns:converters1="clr-namespace:PowerCmd.Converters"
+        xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         mc:Ignorable="d" MinWidth="600" MinHeight="500"
         Title="PowerCmd" Height="500" Width="900" WindowStartupLocation="CenterScreen">
 
@@ -32,9 +33,15 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <TextBox x:Name="Output" Background="Black" Padding="8,0,8,8" Foreground="White" 
+            <avalonedit:TextEditor Background="WhiteSmoke" Padding="8,0,8,8"
+                                   HorizontalScrollBarVisibility="Disabled"
+                                   IsReadOnly="True" Name="Output"
+                                   BorderThickness="1" BorderBrush="LightGray"
+                                   FontFamily="Consolas" FontSize="10pt" />       
+
+            <!--<TextBox x:Name="Output" Background="Black" Padding="8,0,8,8" Foreground="White" 
                      FontFamily="Courier New" TextWrapping="Wrap" IsReadOnly="True"
-                     HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
+                     HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />-->
 
             <ComboBox Grid.Row="1" Margin="0,8,0,0" IsEditable="True"
                       KeyUp="OnInputKeyUp" FontFamily="Courier New" FontSize="18"

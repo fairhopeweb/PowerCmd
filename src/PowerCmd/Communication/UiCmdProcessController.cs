@@ -10,29 +10,32 @@ namespace PowerCmd.Communication
         private readonly MainWindow _view;
         private readonly MainWindowModel _model;
 
-        public UiCmdProcessController(MainWindow view, MainWindowModel model, Dispatcher dispatcher) : base(new UiDispatcher(dispatcher))
+        public UiCmdProcessController(MainWindow view, MainWindowModel model)
         {
             _view = view; 
             _model = model; 
         }
 
-        public override void OnOutputAppended(string output)
+        protected override void AppendOutput(string output)
         {
-            _view.Dispatcher.InvokeAsync(() =>
-            {
-                _view.AppendOutput(output);
-            });
+            _view.AppendOutput(output);
         }
         
         public override void OnClose()
         {
-            _view.Close();
+            _view.Dispatcher.InvokeAsync(() =>
+            {
+                _view.Close();
+            });
         }
 
         public override void OnError()
         {
-            if (_model.LastCommand != null)
-                _model.LastCommand.HasErrors = true;
+            _view.Dispatcher.InvokeAsync(() =>
+            {
+                if (_model.LastCommand != null)
+                    _model.LastCommand.HasErrors = true;
+            });
         }
     }
 }
