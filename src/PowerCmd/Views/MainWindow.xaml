@@ -33,10 +33,11 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <avalonedit:TextEditor Background="WhiteSmoke" Padding="8,0,8,8"
+            <avalonedit:TextEditor Background="Black" Foreground="WhiteSmoke"
+                                   Padding="8,0,8,8"
                                    HorizontalScrollBarVisibility="Disabled"
+                                   VerticalScrollBarVisibility="Auto"
                                    IsReadOnly="True" Name="Output"
-                                   BorderThickness="1" BorderBrush="LightGray"
                                    FontFamily="Consolas" FontSize="10pt" />       
 
             <!--<TextBox x:Name="Output" Background="Black" Padding="8,0,8,8" Foreground="White" 
