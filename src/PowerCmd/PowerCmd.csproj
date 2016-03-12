@@ -63,8 +63,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Communication\NativeConsoleUtilities.cs" />
+    <Compile Include="Converters\ColorToBrushConverter.cs" />
     <Compile Include="ViewModels\CommandButton.cs" />
     <Compile Include="ViewModels\CommandExecutionInfo.cs" />
+    <Compile Include="ViewModels\CommandExecutionResult.cs" />
     <Compile Include="ViewModels\MainWindowModel.cs" />
     <Compile Include="Communication\UiCmdProcessController.cs" />
     <Page Include="Views\MainWindow.xaml">

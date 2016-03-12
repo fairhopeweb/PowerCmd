@@ -8,7 +8,7 @@
         xmlns:converters1="clr-namespace:PowerCmd.Converters"
         mc:Ignorable="d" MinWidth="600" MinHeight="500"
         Title="PowerCmd" Height="500" Width="900" WindowStartupLocation="CenterScreen">
-    
+
     <Window.Resources>
         <viewModels:MainWindowModel x:Key="Model"/>
         <converters:NotConverter x:Key="NotConverter" />
@@ -16,6 +16,7 @@
         <converters:DateTimeConverter x:Key="DateTimeConverter" />
         <converters:TimeSpanConverter x:Key="TimeSpanConverter" />
         <converters1:ErrorBrushConverter x:Key="ErrorBrushConverter" />
+        <converters1:ColorToBrushConverter x:Key="ColorToBrushConverter" />
     </Window.Resources>
 
     <Grid DataContext="{StaticResource Model}" Margin="8">
@@ -81,6 +82,9 @@
                     <Button Content="Open in Explorer" Focusable="False"
                             Margin="0,4,0,0" Padding="8,4,8,4"
                             Command="{Binding OpenCurrentWorkingDirectoryInExplorerCommand}"></Button>
+                    <Button Content="Copy Path" Focusable="False"
+                            Margin="0,4,0,0" Padding="8,4,8,4"
+                            Click="OnCopyPath"></Button>
                 </StackPanel>
 
                 <StackPanel Visibility="{Binding LastCommand, Converter={StaticResource VisibilityConverter}}">
@@ -96,25 +100,41 @@
                     <TextBlock Margin="0,0,0,8" Text="{Binding LastCommand.StartTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
                                Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
 
-                    <TextBlock Text="End time" FontWeight="Bold" Margin="0,0,0,4" />
-                    <StackPanel Margin="0,0,0,8">
-                        <TextBlock Text="Running..." 
-                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource VisibilityConverter}}"
-                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-                        <TextBlock Text="{Binding LastCommand.EndTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
-                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}"
-                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                    <StackPanel Margin="0,0,0,0" Visibility="{Binding IsRunning, Converter={StaticResource VisibilityConverter}}">
+                        <ProgressBar IsIndeterminate="True" Height="24"></ProgressBar>
+                        <Button Content="Stop Script (Ctrl-C)" Focusable="False" Margin="0,8,0,0" Padding="8,4,8,4" Click="OnStopScript"></Button>
                     </StackPanel>
 
-                    <TextBlock Text="Duration" FontWeight="Bold" Margin="0,0,0,4"/>
-                    <StackPanel Margin="0,0,0,8">
-                        <TextBlock Text="Running..." 
-                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource VisibilityConverter}}"
-                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-                        <TextBlock Text="{Binding LastCommand.Duration, Converter={StaticResource TimeSpanConverter}, ConverterParameter='seconds,plain'}" 
-                                   Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}"
-                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                    <StackPanel Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}">
+                        <TextBlock Text="End time" FontWeight="Bold" Margin="0,0,0,4" />
+                        <StackPanel Margin="0,0,0,8">
+                            <TextBlock Text="{Binding LastCommand.EndTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
+                                       Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                        </StackPanel>
+
+                        <TextBlock Text="Duration" FontWeight="Bold" Margin="0,0,0,4"/>
+                        <StackPanel Margin="0,0,0,8">
+                            <TextBlock Text="{Binding LastCommand.Duration, Converter={StaticResource TimeSpanConverter}, ConverterParameter='seconds,plain'}" 
+                                       Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                        </StackPanel>
                     </StackPanel>
+
+                    <Border Margin="0,0,0,0" Padding="8,4,8,4" 
+                            Visibility="{Binding LastCommand.Results.Count, Converter={StaticResource VisibilityConverter}}"
+                            BorderBrush="LightGray" Background="GhostWhite" BorderThickness="1">
+                        <ItemsControl ItemsSource="{Binding LastCommand.Results}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel>
+                                        <TextBlock Margin="0,4,0,0" Text="{Binding Key}" FontWeight="Bold"
+                                               Foreground="{Binding Color, Converter={StaticResource ColorToBrushConverter}}"/>
+                                        <TextBlock Margin="0,0,0,4" Text="{Binding Value}" 
+                                               Foreground="{Binding Color, Converter={StaticResource ColorToBrushConverter}}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Border>
                 </StackPanel>
             </StackPanel>
 

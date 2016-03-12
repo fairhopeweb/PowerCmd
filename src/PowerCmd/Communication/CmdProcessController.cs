@@ -8,20 +8,17 @@ namespace PowerCmd.Communication
 {
     public abstract class CmdProcessController
     {
-        private int _maxTextLength = 1024 * 128;
-
         private readonly IDispatcher _dispatcher;
         private readonly StringBuilder _output = new StringBuilder("\n", 4 * 1024 * 1024);
 
-        private System.Diagnostics.Process _process;
-        private bool _updating = false;
+        private Process _process;
 
         public CmdProcessController(IDispatcher dispatcher)
         {
             _dispatcher = dispatcher;
         }
 
-        public abstract void OnOutputChanged(string output);
+        public abstract void OnOutputAppended(string output);
 
         public abstract void OnClose();
 
@@ -34,7 +31,12 @@ namespace PowerCmd.Communication
             RegisterStandardErrorListener();
         }
 
-        public bool Write(string command)
+        public void StopScript()
+        {
+            NativeConsoleUtilities.StopProgramByAttachingToItsConsoleAndIssuingCtrlCEvent(_process);
+        }
+
+        public bool WriteLine(string command)
         {
             try
             {
@@ -56,7 +58,7 @@ namespace PowerCmd.Communication
                 while (true)
                 {
                     var count = _process.StandardOutput.Read(buffer, 0, buffer.Length);
-                    AppendLineInternal(buffer, count);
+                    AppendOutput(buffer, count);
                 }
 
             }));
@@ -72,8 +74,8 @@ namespace PowerCmd.Communication
                 while (true)
                 {
                     var count = _process.StandardError.Read(buffer, 0, buffer.Length);
-                    AppendLineInternal(buffer, count);
                     _dispatcher.InvokeAsync(OnError);
+                    AppendOutput(buffer, count);
                 }
             }));
             errorThread.IsBackground = true;
@@ -98,30 +100,12 @@ namespace PowerCmd.Communication
             };
         }
 
-        private void AppendLineInternal(char[] buffer, int count)
+        private void AppendOutput(char[] buffer, int count)
         {
             lock (_output)
             {
                 _output.Append(buffer, 0, count);
-                if (!_updating)
-                {
-                    _updating = true;
-                    _dispatcher.InvokeAsync(() =>
-                    {
-                        var text = "";
-
-                        lock (_output)
-                        {
-                            text = _output.Length > _maxTextLength ? 
-                                _output.ToString(_output.Length - _maxTextLength, _maxTextLength) : 
-                                _output.ToString();
-
-                            _updating = false;
-                        }
-
-                        OnOutputChanged(text);
-                    });
-                }
+                OnOutputAppended(new string(buffer, 0, count));
             }
         }
     }

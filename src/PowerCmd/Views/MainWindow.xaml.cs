@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -18,6 +19,7 @@ namespace PowerCmd.Views
 {
     public partial class MainWindow : Window
     {
+        private int _maxOutputLength = 1024 * 32;
         private UiCmdProcessController _cmdProcessController;
 
         public MainWindow()
@@ -139,6 +141,11 @@ namespace PowerCmd.Views
                 if (WriteCommand(Input.Text))
                     Input.Text = "";
             }
+            else if (e.Key == Key.C && Keyboard.IsKeyDown(Key.LeftCtrl))
+            {
+                e.Handled = true; 
+                OnStopScript(null, null);
+            }
         }
 
         private bool WriteCommand(string command)
@@ -149,8 +156,8 @@ namespace PowerCmd.Views
                     Input.Text = command;
                 else
                 {
-                    _cmdProcessController.Write(command);
                     Model.RunCommand(command);
+                    _cmdProcessController.WriteLine(command);
                 }
                 return true;
             }
@@ -164,10 +171,53 @@ namespace PowerCmd.Views
             Input.Focus();
         }
 
-        public void SetOutput(string output)
+        private bool _updateRequested = false;
+        private string _updatedOutput = "";
+        private DateTime _lastUpdate = DateTime.MinValue;
+
+        public async void AppendOutput(string output)
         {
-            Output.Text = output;
-            Output.ScrollToEnd();
+            var currentWorkingDirectory = TryFindCurrentWorkingDirectory(output);
+            if (currentWorkingDirectory != null)
+            {
+                Model.CurrentWorkingDirectory = currentWorkingDirectory;
+                Model.IsRunning = false;
+            }
+            else
+                Model.IsRunning = true;
+            Model.LastCommand?.AppendOutput(output);
+
+            if ((DateTime.Now - _lastUpdate).TotalMilliseconds > 300)
+            {
+                Output.AppendText(output);
+                Output.ScrollToEnd();
+
+                _lastUpdate = DateTime.Now;
+            }
+            else if (!_updateRequested)
+            {
+                _updatedOutput += output;
+                _updateRequested = true;
+
+                await Task.Delay(300);
+                _updateRequested = false;
+                AppendOutput(_updatedOutput);
+                _updatedOutput = "";
+            }
+            else
+                _updatedOutput += output;
+        }
+
+        private string TryFindCurrentWorkingDirectory(string text)
+        {
+            var match = Regex.Match(text, "^.*?(\n(.*))>$", RegexOptions.Multiline);
+            if (match.Success)
+            {
+                var path = match.Groups[2].Value;
+                if (Directory.Exists(path))
+                    return path;
+            }
+            return null;
         }
 
         private void OnSaveCommandButtons(object sender, RoutedEventArgs e)
@@ -192,6 +242,16 @@ namespace PowerCmd.Views
                     XmlSerialization.Deserialize<List<CommandButton>>(File.ReadAllText(dlg.FileName))
                 );
             }
+        }
+
+        private void OnStopScript(object sender, RoutedEventArgs e)
+        {
+            _cmdProcessController.StopScript();
+        }
+
+        private void OnCopyPath(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(Model.CurrentWorkingDirectory);
         }
     }
 }

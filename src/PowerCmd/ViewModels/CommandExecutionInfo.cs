@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows.Media;
 using MyToolkit.Model;
 
 namespace PowerCmd.ViewModels
@@ -7,6 +12,7 @@ namespace PowerCmd.ViewModels
     {
         private string _command;
         private string _workingDirectory;
+        private StringBuilder _output = new StringBuilder(128 * 1024);
 
         private DateTime _startTime;
         private DateTime? _endTime;
@@ -66,12 +72,111 @@ namespace PowerCmd.ViewModels
         /// <summary>Gets or sets the duration. </summary>
         public TimeSpan? Duration => EndTime.HasValue ? EndTime.Value - StartTime : (TimeSpan?)null;
 
+        public ObservableCollection<CommandExecutionResult> Results { get; } = new ObservableCollection<CommandExecutionResult>();
+
+        public string Output => _output.ToString();
+
+        public void AppendOutput(string output)
+        {
+            _output.Append(output);
+        }
+
         public void Complete()
         {
             if (!EndTime.HasValue)
             {
                 EndTime = DateTime.Now;
+
+                // TODO: Refactor and use strategy pattern
+                AddDirResults();
+                AddMsBuildResults();
+                AddMbMsbuildResults();
             }
+        }
+
+        private void AddDirResults()
+        {
+            if (Command.ToLowerInvariant().StartsWith("dir") && !HasErrors)
+            {
+                Results.Add(new CommandExecutionResult
+                {
+                    Key = "Number of Directories",
+                    Value = ReadNumberOfDirectories().ToString()
+                });
+
+                Results.Add(new CommandExecutionResult
+                {
+                    Key = "Number of Files",
+                    Value = ReadNumberOfFiles().ToString()
+                });
+            }
+        }
+
+        private int ReadNumberOfDirectories()
+        {
+            return Regex.Matches(Output, "<DIR>", RegexOptions.Multiline)
+                .Cast<Match>()
+                .Count(match => match.Success);
+        }
+
+        private int ReadNumberOfFiles()
+        {
+            return Regex.Matches(Output, "(AM|PM)             ", RegexOptions.Multiline)
+                .Cast<Match>()
+                .Count(match => match.Success);
+        }
+
+        private void AddMbMsbuildResults()
+        {
+            if (Command.ToLowerInvariant().StartsWith("msbuild /t:su") && !HasErrors)
+            {
+                Results.Add(new CommandExecutionResult
+                {
+                    Key = "Number of NuGet Package Updates",
+                    Value = ReadNumberOfUpdates().ToString()
+                });
+            }
+        }
+
+        private int ReadNumberOfUpdates()
+        {
+            return Regex.Matches(Output, "Repository Version:", RegexOptions.Multiline)
+                .Cast<Match>()
+                .Count(match => match.Success);
+        }
+
+        private void AddMsBuildResults()
+        {
+            if (Command.ToLowerInvariant().StartsWith("msbuild") && !HasErrors)
+            {
+                Results.Add(new CommandExecutionResult
+                {
+                    Key = "Warnings",
+                    Color = Colors.Orange,
+                    Value = ReadMsBuildCounter("Warning").ToString()
+                });
+                Results.Add(new CommandExecutionResult
+                {
+                    Key = "Errors",
+                    Color = Colors.Red,
+                    Value = ReadMsBuildCounter("Error").ToString()
+                });
+            }
+        }
+
+        private int ReadMsBuildCounter(string type)
+        {
+            var count = 0;
+            foreach (Match match in Regex.Matches(Output, "    ([0-9]*) " + type + "\\(s\\)", RegexOptions.Multiline))
+            {
+                if (match.Success)
+                {
+                    var matchCount = 0; 
+                    if (int.TryParse(match.Groups[1].Value, out matchCount))
+                        count += matchCount;
+                }
+            }
+            return count;
         }
     }
 }

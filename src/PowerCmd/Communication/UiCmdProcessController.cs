@@ -1,5 +1,3 @@
-using System.IO;
-using System.Text.RegularExpressions;
 using System.Windows.Threading;
 using MyToolkit.UI;
 using PowerCmd.ViewModels;
@@ -18,20 +16,14 @@ namespace PowerCmd.Communication
             _model = model; 
         }
 
-        public override void OnOutputChanged(string output)
+        public override void OnOutputAppended(string output)
         {
-            var currentWorkingDirectory = TryFindCurrentWorkingDirectory(output);
-            if (currentWorkingDirectory != null)
+            _view.Dispatcher.InvokeAsync(() =>
             {
-                _model.CurrentWorkingDirectory = currentWorkingDirectory;
-                _model.IsRunning = false;
-            }
-            else
-                _model.IsRunning = true;
-
-            _view.SetOutput(output);
+                _view.AppendOutput(output);
+            });
         }
-
+        
         public override void OnClose()
         {
             _view.Close();
@@ -41,18 +33,6 @@ namespace PowerCmd.Communication
         {
             if (_model.LastCommand != null)
                 _model.LastCommand.HasErrors = true;
-        }
-
-        private string TryFindCurrentWorkingDirectory(string text)
-        {
-            var match = Regex.Match(text, "^.*?(\n(.*))>$", RegexOptions.Multiline);
-            if (match.Success)
-            {
-                var path = match.Groups[2].Value;
-                if (Directory.Exists(path))
-                    return path;
-            }
-            return null;
         }
     }
 }
