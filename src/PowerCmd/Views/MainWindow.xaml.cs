@@ -176,16 +176,23 @@ namespace PowerCmd.Views
         private bool _updateRequested = false;
         private readonly StringBuilder _outputCache = new StringBuilder();
         private DateTime _lastUpdate = DateTime.MinValue;
+        private bool _wasError = false; 
 
-        public async void AppendOutput(string output)
+        public async void AppendOutput(string output, bool isError)
         {
             await Dispatcher.InvokeAsync(async () =>
             {
-                if ((DateTime.Now - _lastUpdate).TotalMilliseconds > 200)
+                if ((DateTime.Now - _lastUpdate).TotalMilliseconds > 200 || _wasError != isError)
                 {
-                    AppendOutputDirectly(_outputCache + output);
-                    _outputCache.Clear();
+                    if (_wasError != isError)
+                    {
+                        AppendOutputDirectly(_outputCache.ToString(), _wasError);
+                        AppendOutputDirectly(output, isError);
+                    }
+                    else
+                        AppendOutputDirectly(_outputCache + output, isError);
 
+                    _outputCache.Clear();
                     _lastUpdate = DateTime.Now;
                     _updateRequested = false;
                 }
@@ -193,30 +200,34 @@ namespace PowerCmd.Views
                 {
                     _outputCache.Append(output);
                     _updateRequested = true;
+                    _wasError = isError;
 
                     await Task.Delay(300);
-                    AppendOutput(string.Empty);
+                    AppendOutput(string.Empty, isError);
                 }
                 else
                     _outputCache.Append(output);
             });
         }
 
-        private async void AppendOutputDirectly(string output)
+        private async void AppendOutputDirectly(string output, bool isError)
         {
             if (string.IsNullOrEmpty(output))
                 return;
 
             Model.LastCommand?.AppendOutput(output);
 
-            var currentWorkingDirectory = TryFindCurrentWorkingDirectory(output);
-            if (currentWorkingDirectory != null)
+            if (!isError)
             {
-                Model.CurrentWorkingDirectory = currentWorkingDirectory;
-                Model.IsRunning = false;
+                var currentWorkingDirectory = TryFindCurrentWorkingDirectory(output);
+                if (currentWorkingDirectory != null)
+                {
+                    Model.CurrentWorkingDirectory = currentWorkingDirectory;
+                    Model.IsRunning = false;
+                }
+                else
+                    Model.IsRunning = true;
             }
-            else
-                Model.IsRunning = true;
 
             Output.BeginChange();
             Output.AppendText(output);

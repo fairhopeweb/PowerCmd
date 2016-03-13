@@ -11,7 +11,7 @@ namespace PowerCmd.Communication
         private readonly StringBuilder _output = new StringBuilder("\n", 4 * 1024 * 1024);
         private Process _process;
 
-        protected abstract void AppendOutput(string output);
+        protected abstract void AppendOutput(string output, bool isError);
 
         public abstract void OnClose();
 
@@ -54,7 +54,7 @@ namespace PowerCmd.Communication
                     lock (_output)
                     {
                         _output.Append(buffer, 0, count);
-                        AppendOutput(new string(buffer, 0, count));
+                        AppendOutput(new string(buffer, 0, count), false);
                     }
                 }
 
@@ -76,7 +76,7 @@ namespace PowerCmd.Communication
                     lock (_output)
                     {
                         _output.Append(buffer, 0, count);
-                        AppendOutput(new string(buffer, 0, count));
+                        AppendOutput(new string(buffer, 0, count), true);
                     }
                 }
             }));

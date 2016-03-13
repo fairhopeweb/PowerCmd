@@ -16,9 +16,9 @@ namespace PowerCmd.Communication
             _model = model; 
         }
 
-        protected override void AppendOutput(string output)
+        protected override void AppendOutput(string output, bool isError)
         {
-            _view.AppendOutput(output);
+            _view.AppendOutput(output, isError);
         }
         
         public override void OnClose()
