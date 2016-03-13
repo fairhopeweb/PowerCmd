@@ -71,13 +71,12 @@ namespace PowerCmd.Communication
                 while (true)
                 {
                     var count = _process.StandardError.Read(buffer, 0, buffer.Length);
-                    OnError();
-
                     lock (_output)
                     {
                         _output.Append(buffer, 0, count);
                         AppendOutput(new string(buffer, 0, count), true);
                     }
+                    OnError();
                 }
             }));
             errorThread.IsBackground = true;
