@@ -7,7 +7,7 @@
         xmlns:converters="clr-namespace:MyToolkit.Converters;assembly=MyToolkit.Extended"
         xmlns:converters1="clr-namespace:PowerCmd.Converters"
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
-        mc:Ignorable="d" MinWidth="600" MinHeight="500"
+        mc:Ignorable="d" MinWidth="800" MinHeight="500"
         Title="PowerCmd" Height="500" Width="900" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
@@ -22,12 +22,14 @@
 
     <Grid DataContext="{StaticResource Model}" Margin="8">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="240" MinWidth="240" MaxWidth="360" />
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="*" MinWidth="220" />
+            <ColumnDefinition Width="8" />
+            <ColumnDefinition Width="240" MinWidth="240" MaxWidth="360" />
         </Grid.ColumnDefinitions>
 
-        <Grid Width="240" Margin="0,0,8,0">
+        <Grid Margin="0,0,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -43,7 +45,9 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="1">
+        <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Margin="2,0,2,0" />
+
+        <Grid Grid.Column="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -99,7 +103,9 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="2" Width="240" Margin="8,0,0,0">
+        <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch" Margin="2,0,2,0" />
+
+        <Grid Grid.Column="4" Margin="0,0,0,0">
             <StackPanel>
                 <StackPanel Margin="0,0,0,16">
                     <TextBlock Text="Current Working Directory" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />
