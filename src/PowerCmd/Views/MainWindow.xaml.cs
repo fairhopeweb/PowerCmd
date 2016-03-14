@@ -23,6 +23,7 @@ namespace PowerCmd.Views
     {
         private int _maxOutputLength = 1024 * 32;
         private UiCmdProcessController _cmdProcessController;
+        private List<ISuggestionProvider> _suggestionProviders;
 
         public MainWindow()
         {
@@ -35,10 +36,18 @@ namespace PowerCmd.Views
             LoadSettings();
 
             Activated += (sender, args) => { Input.Focus(); };
+
+            _suggestionProviders = new List<ISuggestionProvider>
+            {
+                //new CdHistoryProvider(Model),
+                new HistorySuggestionProvider(Model)
+            };
         }
 
         private void LoadSettings()
         {
+            Model.RootDirectory = ApplicationSettings.GetSetting("RootDirectory", "C:/");
+
             Width = ApplicationSettings.GetSetting("WindowWidth", Width);
             Height = ApplicationSettings.GetSetting("WindowHeight", Height);
             Left = ApplicationSettings.GetSetting("WindowLeft", Left);
@@ -123,6 +132,8 @@ namespace PowerCmd.Views
             if (match.Success)
                 ApplicationSettings.SetSetting("CurrentDirectory", match.Groups[2].Value, false, true);
 
+            ApplicationSettings.SetSetting("RootDirectory", Model.RootDirectory);
+
             ApplicationSettings.SetSetting("WindowWidth", Width);
             ApplicationSettings.SetSetting("WindowHeight", Height);
             ApplicationSettings.SetSetting("WindowLeft", Left);
@@ -132,7 +143,7 @@ namespace PowerCmd.Views
             ApplicationSettings.SetSettingWithXmlSerializer("CommandButtons", new List<CommandButton>(Model.CommandButtons));
         }
 
-        private void OnInputKeyUp(object sender, KeyEventArgs e)
+        private async void OnInputKeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
             {
@@ -145,9 +156,44 @@ namespace PowerCmd.Views
             }
             else if (e.Key == Key.C && Keyboard.IsKeyDown(Key.LeftCtrl))
             {
-                e.Handled = true; 
+                e.Handled = true;
                 OnStopScript(null, null);
             }
+            else if (e.Key == Key.Tab)
+            {
+                e.Handled = true;
+                if (Input.Text.StartsWith("cd "))
+                    Input.Text += "/";
+                Input.Focus();
+            }
+
+            await UpdateSuggestions();
+        }
+
+        private bool _suggestionsRunning = false;
+        private bool _suggestionsDirty = false;
+
+        private async Task UpdateSuggestions()
+        {
+            if (!_suggestionsRunning)
+            {
+                _suggestionsRunning = true;
+                _suggestionsDirty = false;
+
+                var command = Input.Text;
+                var suggestionProvider = _suggestionProviders.FirstOrDefault(p => p.SupportsCommand(command));
+                if (suggestionProvider != null)
+                    Model.Suggestions = await suggestionProvider.GetSuggestionsAsync(command);
+                else
+                    Model.Suggestions = new string[] {};
+
+                _suggestionsRunning = false;
+
+                if (_suggestionsDirty)
+                    await UpdateSuggestions();
+            }
+            else
+                _suggestionsDirty = true;
         }
 
         private bool WriteCommand(string command)
@@ -176,7 +222,7 @@ namespace PowerCmd.Views
         private bool _updateRequested = false;
         private readonly StringBuilder _outputCache = new StringBuilder();
         private DateTime _lastUpdate = DateTime.MinValue;
-        private bool _wasError = false; 
+        private bool _wasError = false;
 
         public async void AppendOutput(string output, bool isError)
         {
@@ -286,6 +332,13 @@ namespace PowerCmd.Views
         private void OnCopyPath(object sender, RoutedEventArgs e)
         {
             Clipboard.SetText(Model.CurrentWorkingDirectory);
+        }
+
+        private void OnDirectoryDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var directory = ((ListBox) sender).SelectedItem.ToString();
+            var command = "cd " + Path.Combine(Model.RootDirectory, directory); 
+            WriteCommand(command);
         }
     }
 }

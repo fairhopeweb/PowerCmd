@@ -22,11 +22,28 @@
 
     <Grid DataContext="{StaticResource Model}" Margin="8">
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
 
-        <Grid>
+        <Grid Width="240" Margin="0,0,8,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Text="Projects" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />
+            <ListBox Grid.Row="1" ItemsSource="{Binding Directories}" MouseDoubleClick="OnDirectoryDoubleClick" />
+
+            <StackPanel Grid.Row="2" Margin="0,8,0,0">
+                <TextBlock Text="Directory" FontWeight="Bold" Margin="0,0,0,4" />
+                <TextBox Text="{Binding RootDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
@@ -46,7 +63,7 @@
 
             <ComboBox Grid.Row="1" Margin="0,8,0,0" IsEditable="True"
                       KeyUp="OnInputKeyUp" FontFamily="Courier New" FontSize="18"
-                      x:Name="Input" ItemsSource="{Binding CommandHistory}" DisplayMemberPath="Command"></ComboBox>
+                      x:Name="Input" ItemsSource="{Binding Suggestions}" />
 
             <StackPanel Grid.Row="2" Margin="0,8,0,-8">
                 <ItemsControl ItemsSource="{Binding CommandButtons}">
@@ -82,7 +99,7 @@
             </StackPanel>
         </Grid>
 
-        <Grid Grid.Column="1" Width="240" Margin="8,0,0,0">
+        <Grid Grid.Column="2" Width="240" Margin="8,0,0,0">
             <StackPanel>
                 <StackPanel Margin="0,0,0,16">
                     <TextBlock Text="Current Working Directory" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />

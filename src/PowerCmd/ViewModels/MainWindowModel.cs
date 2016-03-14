@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows.Input;
 using MyToolkit.Command;
@@ -14,6 +16,9 @@ namespace PowerCmd.ViewModels
         private ObservableCollection<CommandButton> _commandButtons;
         private string _currentWorkingDirectory;
         private bool _isRunning;
+        private IEnumerable<string> _suggestions;
+        private string _rootDirectory = string.Empty;
+        private IEnumerable<string> _directories;
 
         public MainWindowModel()
         {
@@ -23,6 +28,24 @@ namespace PowerCmd.ViewModels
         public ICommand OpenCurrentWorkingDirectoryInExplorerCommand { get; private set; }
 
         public ObservableCollection<CommandExecutionInfo> CommandHistory { get; } = new ObservableCollection<CommandExecutionInfo>();
+
+        /// <summary>Gets or sets the root directory. </summary>
+        public string RootDirectory
+        {
+            get { return _rootDirectory; }
+            set
+            {
+                if (Set(ref _rootDirectory, value))
+                    LoadDirectoriesAsync();
+            }
+        }
+
+        /// <summary>Gets or sets the directories. </summary>
+        public IEnumerable<string> Directories
+        {
+            get { return _directories; }
+            set { Set(ref _directories, value); }
+        }
 
         /// <summary>Gets or sets the command buttons. </summary>
         public ObservableCollection<CommandButton> CommandButtons
@@ -49,6 +72,13 @@ namespace PowerCmd.ViewModels
             }
         }
 
+        /// <summary>Gets or sets the suggestions. </summary>
+        public IEnumerable<string> Suggestions
+        {
+            get { return _suggestions; }
+            set { Set(ref _suggestions, value); }
+        }
+
         /// <summary>Gets or sets the last command. </summary>
         public CommandExecutionInfo LastCommand => CommandHistory.Any() ? CommandHistory.First() : null;
 
@@ -68,6 +98,21 @@ namespace PowerCmd.ViewModels
         private void OpenCurrentWorkingDirectoryInExplorer()
         {
             Process.Start(CurrentWorkingDirectory);
+        }
+
+        private void LoadDirectoriesAsync()
+        {
+            if ((RootDirectory.Contains("/") || RootDirectory.Contains("\\")) && Directory.Exists(RootDirectory))
+            {
+                try
+                {
+                    Directories = Directory.GetDirectories(RootDirectory).Select(Path.GetFileName);
+                }
+                catch
+                {
+                    Directories = new string[] { };
+                }
+            }
         }
     }
 }
