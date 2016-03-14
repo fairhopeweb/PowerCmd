@@ -84,9 +84,10 @@
     </Compile>
     <Compile Include="Communication\CmdProcessController.cs" />
     <Compile Include="Converters\ErrorBrushConverter.cs" />
-    <Compile Include="Views\CdHistoryProvider.cs" />
-    <Compile Include="Views\HistorySuggestionProvider.cs" />
-    <Compile Include="Views\ISuggestionProvider.cs" />
+    <Compile Include="Providers\SuggestionProviders\CdHistoryProvider.cs" />
+    <Compile Include="Views\ComboBoxUtilities.cs" />
+    <Compile Include="Providers\SuggestionProviders\HistorySuggestionProvider.cs" />
+    <Compile Include="Providers\SuggestionProviders\ISuggestionProvider.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

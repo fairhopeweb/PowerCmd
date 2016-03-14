@@ -8,6 +8,7 @@
         xmlns:converters1="clr-namespace:PowerCmd.Converters"
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         mc:Ignorable="d" MinWidth="800" MinHeight="500"
+        PreviewKeyUp="OnInputPreviewKeyUp"
         Title="PowerCmd" Height="500" Width="900" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
@@ -61,16 +62,12 @@
                                    IsReadOnly="True" Name="Output"
                                    FontFamily="Consolas" FontSize="10pt" />       
 
-            <!--<TextBox x:Name="Output" Background="Black" Padding="8,0,8,8" Foreground="White" 
-                     FontFamily="Courier New" TextWrapping="Wrap" IsReadOnly="True"
-                     HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />-->
-
             <ComboBox Grid.Row="1" Margin="0,8,0,0" IsEditable="True"
                       KeyUp="OnInputKeyUp" FontFamily="Courier New" FontSize="18"
-                      x:Name="Input" ItemsSource="{Binding Suggestions}" />
+                      x:Name="Input" />
 
-            <StackPanel Grid.Row="2" Margin="0,8,0,-8">
-                <ItemsControl ItemsSource="{Binding CommandButtons}">
+            <StackPanel Grid.Row="2" Margin="0,8,0,-8" Focusable="False">
+                <ItemsControl ItemsSource="{Binding CommandButtons}" Focusable="False">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel Orientation="Horizontal" />

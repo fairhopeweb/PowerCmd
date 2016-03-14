@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using PowerCmd.ViewModels;
 
-namespace PowerCmd.Views
+namespace PowerCmd.Providers.SuggestionProviders
 {
     public class CdHistoryProvider : ISuggestionProvider
     {
@@ -25,9 +24,22 @@ namespace PowerCmd.Views
         {
             try
             {
+                command = command.Replace("\\", "/");
+
                 var cwd = _model.CurrentWorkingDirectory;
-                var directories = (await Task.Run(() => Directory.GetDirectories(cwd))).Select(p => "cd " + Path.GetFileName(p)).ToList();
-                directories.Insert(0, "cd ..");
+                var segments = command.Length > 3
+                    ? command.Substring(3).Split('/')
+                    : new string[] { };
+
+                var prefix = string.Join("/", segments.Take(segments.Length - 1));
+                cwd = segments.Length > 1 ? Path.Combine(cwd, prefix) : cwd;
+
+                var directories = (await Task.Run(() => Directory.GetDirectories(cwd)))
+                    .Select(p => "cd " + (!string.IsNullOrEmpty(prefix) ? prefix + "/" + Path.GetFileName(p) : Path.GetFileName(p))).ToList();
+
+                if (string.IsNullOrEmpty(prefix))
+                    directories.Insert(0, "cd ..");
+
                 return directories;
             }
             catch

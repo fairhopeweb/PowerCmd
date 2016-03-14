@@ -16,7 +16,6 @@ namespace PowerCmd.ViewModels
         private ObservableCollection<CommandButton> _commandButtons;
         private string _currentWorkingDirectory;
         private bool _isRunning;
-        private IEnumerable<string> _suggestions;
         private string _rootDirectory = string.Empty;
         private IEnumerable<string> _directories;
 
@@ -70,13 +69,6 @@ namespace PowerCmd.ViewModels
                 if (Set(ref _isRunning, value))
                     LastCommand?.Complete();
             }
-        }
-
-        /// <summary>Gets or sets the suggestions. </summary>
-        public IEnumerable<string> Suggestions
-        {
-            get { return _suggestions; }
-            set { Set(ref _suggestions, value); }
         }
 
         /// <summary>Gets or sets the last command. </summary>

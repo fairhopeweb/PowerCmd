@@ -15,6 +15,7 @@ using MyToolkit.Storage;
 using MyToolkit.UI;
 using MyToolkit.Utilities;
 using PowerCmd.Communication;
+using PowerCmd.Providers.SuggestionProviders;
 using PowerCmd.ViewModels;
 
 namespace PowerCmd.Views
@@ -23,7 +24,7 @@ namespace PowerCmd.Views
     {
         private int _maxOutputLength = 1024 * 32;
         private UiCmdProcessController _cmdProcessController;
-        private List<ISuggestionProvider> _suggestionProviders;
+        private readonly List<ISuggestionProvider> _suggestionProviders;
 
         public MainWindow()
         {
@@ -39,7 +40,7 @@ namespace PowerCmd.Views
 
             _suggestionProviders = new List<ISuggestionProvider>
             {
-                //new CdHistoryProvider(Model),
+                new CdHistoryProvider(Model),
                 new HistorySuggestionProvider(Model)
             };
         }
@@ -143,6 +144,39 @@ namespace PowerCmd.Views
             ApplicationSettings.SetSettingWithXmlSerializer("CommandButtons", new List<CommandButton>(Model.CommandButtons));
         }
 
+        private void OnInputPreviewKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Tab)
+            {
+                e.Handled = true;
+                if (Input.Text.StartsWith("cd "))
+                {
+                    if (!Input.Text.EndsWith("/") && !Input.Text.EndsWith("\\"))
+                    {
+                        if (Directory.Exists(Path.Combine(Model.CurrentWorkingDirectory, Input.Text.Substring(3))))
+                            Input.AppendText("/");
+                        else
+                            SelectFirstSuggestion();
+                    }
+                    else
+                        SelectFirstSuggestion();
+
+                    UpdateSuggestions();
+                }
+                else
+                    Input.SelectSuggestion();
+            }
+        }
+
+        private void SelectFirstSuggestion()
+        {
+            var suggestions = (IEnumerable<string>) Input.ItemsSource;
+            if (suggestions.Any())
+                Input.SetText(((IEnumerable<string>) Input.ItemsSource).First());
+            else
+                Input.SelectSuggestion();
+        }
+
         private async void OnInputKeyUp(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -159,17 +193,10 @@ namespace PowerCmd.Views
                 e.Handled = true;
                 OnStopScript(null, null);
             }
-            else if (e.Key == Key.Tab)
-            {
-                e.Handled = true;
-                if (Input.Text.StartsWith("cd "))
-                    Input.Text += "/";
-                Input.Focus();
-            }
 
             await UpdateSuggestions();
         }
-
+        
         private bool _suggestionsRunning = false;
         private bool _suggestionsDirty = false;
 
@@ -180,13 +207,15 @@ namespace PowerCmd.Views
                 _suggestionsRunning = true;
                 _suggestionsDirty = false;
 
-                var command = Input.Text;
-                var suggestionProvider = _suggestionProviders.FirstOrDefault(p => p.SupportsCommand(command));
-                if (suggestionProvider != null)
-                    Model.Suggestions = await suggestionProvider.GetSuggestionsAsync(command);
-                else
-                    Model.Suggestions = new string[] {};
+                await Input.SetSuggestionsAsync(async (command) =>
+                {
+                    var suggestionProvider = _suggestionProviders.FirstOrDefault(p => p.SupportsCommand(command));
+                    if (suggestionProvider != null)
+                        return await suggestionProvider.GetSuggestionsAsync(command);
 
+                    return new string[] { };
+                });
+                
                 _suggestionsRunning = false;
 
                 if (_suggestionsDirty)
@@ -336,7 +365,9 @@ namespace PowerCmd.Views
 
         private void OnDirectoryDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var directory = ((ListBox) sender).SelectedItem.ToString();
+            var listBox = ((ListBox) sender); 
+            var directory = listBox.SelectedItem.ToString();
+            listBox.SelectedItem = null; 
 
             var command = "cd " + Path.Combine(Model.RootDirectory, directory); 
             WriteCommand(command);
