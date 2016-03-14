@@ -337,8 +337,11 @@ namespace PowerCmd.Views
         private void OnDirectoryDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var directory = ((ListBox) sender).SelectedItem.ToString();
+
             var command = "cd " + Path.Combine(Model.RootDirectory, directory); 
             WriteCommand(command);
+
+            Input.Focus();
         }
     }
 }
