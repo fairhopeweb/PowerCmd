@@ -113,6 +113,8 @@ namespace PowerCmd.ViewModels
                     Directories = new string[] { };
                 }
             }
+            else
+                Directories = new string[] { };
         }
     }
 }
