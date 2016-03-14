@@ -369,7 +369,7 @@ namespace PowerCmd.Views
             var directory = listBox.SelectedItem.ToString();
             listBox.SelectedItem = null; 
 
-            var command = "cd " + Path.Combine(Model.RootDirectory, directory); 
+            var command = "cd \"" + Path.Combine(Model.RootDirectory, directory) + "\""; 
             WriteCommand(command);
 
             Input.Focus();
