@@ -2,7 +2,7 @@
 
 [![Build status](https://ci.appveyor.com/api/projects/status/0w2ypoe5nupkb7ow?svg=true)](https://ci.appveyor.com/project/rsuter/powercmd)
 
-PowerCmd is a command prompt which replaces the native Windows Prompt. The tool greatly enhances your script execution performance with improved output rendering and adds other useful features like output analysis, command buttons, improved suggestions and project directories. 
+PowerCmd is a replacement for the native Windows Prompt with enhanced performance and additional features. The tool greatly improves script execution performance with optimized output rendering and adds features like output analysis, command buttons, improved suggestions and project directories. 
 
 #### [Download latest PowerCmd MSI installer](http://rsuter.com/Projects/PowerCmd/installer.php)
 
