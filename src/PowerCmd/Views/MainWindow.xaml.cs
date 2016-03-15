@@ -114,7 +114,8 @@ namespace PowerCmd.Views
         {
             Input.Focus();
 
-            var currentDirectory = ApplicationSettings.GetSetting("CurrentDirectory", "C:/");
+            var args = Environment.GetCommandLineArgs();
+            var currentDirectory = args.Length > 1 ? args[1] : ApplicationSettings.GetSetting("CurrentDirectory", "C:/");
             if (Directory.Exists(currentDirectory))
             {
                 Directory.SetCurrentDirectory(currentDirectory);
@@ -170,9 +171,9 @@ namespace PowerCmd.Views
 
         private void SelectFirstSuggestion()
         {
-            var suggestions = (IEnumerable<string>) Input.ItemsSource;
+            var suggestions = (IEnumerable<string>)Input.ItemsSource;
             if (suggestions.Any())
-                Input.SetText(((IEnumerable<string>) Input.ItemsSource).First());
+                Input.SetText(((IEnumerable<string>)Input.ItemsSource).First());
             else
                 Input.SelectSuggestion();
         }
@@ -196,7 +197,7 @@ namespace PowerCmd.Views
 
             await UpdateSuggestions();
         }
-        
+
         private bool _suggestionsRunning = false;
         private bool _suggestionsDirty = false;
 
@@ -215,7 +216,7 @@ namespace PowerCmd.Views
 
                     return new string[] { };
                 });
-                
+
                 _suggestionsRunning = false;
 
                 if (_suggestionsDirty)
@@ -365,11 +366,11 @@ namespace PowerCmd.Views
 
         private void OnDirectoryDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var listBox = ((ListBox) sender); 
+            var listBox = ((ListBox)sender);
             var directory = listBox.SelectedItem.ToString();
-            listBox.SelectedItem = null; 
+            listBox.SelectedItem = null;
 
-            var command = "cd \"" + Path.Combine(Model.RootDirectory, directory) + "\""; 
+            var command = "cd \"" + Path.Combine(Model.RootDirectory, directory) + "\"";
             WriteCommand(command);
 
             Input.Focus();
