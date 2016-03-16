@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace PowerCmd.Providers.SuggestionProviders
+namespace PowerCmd.Extensions.SuggestionProviders
 {
     public interface ISuggestionProvider
     {

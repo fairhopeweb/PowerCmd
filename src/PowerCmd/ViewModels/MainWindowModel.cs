@@ -8,6 +8,7 @@ using System.Windows.Input;
 using MyToolkit.Command;
 using MyToolkit.Mvvm;
 using MyToolkit.Utilities;
+using PowerCmd.Models;
 
 namespace PowerCmd.ViewModels
 {
@@ -67,7 +68,7 @@ namespace PowerCmd.ViewModels
             set
             {
                 if (Set(ref _isRunning, value))
-                    LastCommand?.Complete();
+                    LastCommand?.CompleteAsync();
             }
         }
 

@@ -12,10 +12,10 @@ using System.Windows.Input;
 using Microsoft.Win32;
 using MyToolkit.Serialization;
 using MyToolkit.Storage;
-using MyToolkit.UI;
 using MyToolkit.Utilities;
 using PowerCmd.Communication;
-using PowerCmd.Providers.SuggestionProviders;
+using PowerCmd.Extensions.SuggestionProviders;
+using PowerCmd.Models;
 using PowerCmd.ViewModels;
 
 namespace PowerCmd.Views

@@ -1,4 +1,4 @@
-namespace PowerCmd.ViewModels
+namespace PowerCmd.Models
 {
     public class CommandButton
     {

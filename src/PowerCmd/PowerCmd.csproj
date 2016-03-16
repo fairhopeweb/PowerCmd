@@ -73,9 +73,13 @@
     </ApplicationDefinition>
     <Compile Include="Communication\NativeConsoleUtilities.cs" />
     <Compile Include="Converters\ColorToBrushConverter.cs" />
-    <Compile Include="ViewModels\CommandButton.cs" />
-    <Compile Include="ViewModels\CommandExecutionInfo.cs" />
-    <Compile Include="ViewModels\CommandExecutionResult.cs" />
+    <Compile Include="Extensions\OutputAnalyzers\DirCommandAnalyzer.cs" />
+    <Compile Include="Extensions\OutputAnalyzers\IOutputAnalyzer.cs" />
+    <Compile Include="Extensions\OutputAnalyzers\MainBrainShowUpdatesCommandAnalyzer.cs" />
+    <Compile Include="Extensions\OutputAnalyzers\MsBuildCommandAnalyzer.cs" />
+    <Compile Include="Models\CommandButton.cs" />
+    <Compile Include="Models\CommandExecutionInfo.cs" />
+    <Compile Include="Models\CommandExecutionResult.cs" />
     <Compile Include="ViewModels\MainWindowModel.cs" />
     <Compile Include="Communication\UiCmdProcessController.cs" />
     <Page Include="Views\MainWindow.xaml">
@@ -88,10 +92,10 @@
     </Compile>
     <Compile Include="Communication\CmdProcessController.cs" />
     <Compile Include="Converters\ErrorBrushConverter.cs" />
-    <Compile Include="Providers\SuggestionProviders\CdHistoryProvider.cs" />
+    <Compile Include="Extensions\SuggestionProviders\CdHistoryProvider.cs" />
     <Compile Include="Views\ComboBoxUtilities.cs" />
-    <Compile Include="Providers\SuggestionProviders\HistorySuggestionProvider.cs" />
-    <Compile Include="Providers\SuggestionProviders\ISuggestionProvider.cs" />
+    <Compile Include="Extensions\SuggestionProviders\HistorySuggestionProvider.cs" />
+    <Compile Include="Extensions\SuggestionProviders\ISuggestionProvider.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 
-namespace PowerCmd.ViewModels
+namespace PowerCmd.Models
 {
     public class CommandExecutionResult
     {

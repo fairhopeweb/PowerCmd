@@ -3,7 +3,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using PowerCmd.ViewModels;
 
-namespace PowerCmd.Providers.SuggestionProviders
+namespace PowerCmd.Extensions.SuggestionProviders
 {
     public class HistorySuggestionProvider : ISuggestionProvider
     {

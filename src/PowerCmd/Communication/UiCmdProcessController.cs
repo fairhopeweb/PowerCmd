@@ -1,5 +1,3 @@
-using System.Windows.Threading;
-using MyToolkit.UI;
 using PowerCmd.ViewModels;
 using PowerCmd.Views;
 
