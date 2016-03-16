@@ -447,144 +447,132 @@
                 <File Id="fil2E9070A107598B8FB198EFBCF6062E75" KeyPath="yes" Source="$(var.SourcePath)\MyToolkit.xml" />
             </Component>
             <Component Id="cmp98651A93113FE7911DDD8D9C46B07EFC" Directory="RootDirectory" Guid="*">
-                <Class Id="{44779067-E5EC-3CFB-BE7A-77669569ABC1}" Context="InprocServer32" Description="PowerCmd.Extensions.OutputAnalyzers.MsBuildCommandAnalyzer" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="PowerCmd.Extensions.OutputAnalyzers.MsBuildCommandAnalyzer" Description="PowerCmd.Extensions.OutputAnalyzers.MsBuildCommandAnalyzer" />
-                </Class>
-                <Class Id="{453BEB55-976B-3670-BC7C-9D9A0A9FC54A}" Context="InprocServer32" Description="PowerCmd.Extensions.OutputAnalyzers.MainBrainShowUpdatesCommandAnalyzer" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="PowerCmd.Extensions.OutputAnalyzers.MainBrainShowUpdatesCommandAnalyzer" Description="PowerCmd.Extensions.OutputAnalyzers.MainBrainShowUpdatesCommandAnalyzer" />
-                </Class>
-                <Class Id="{7BBAC106-2A90-3001-BB3A-821544ECE9E9}" Context="InprocServer32" Description="PowerCmd.Converters.ColorToBrushConverter" ThreadingModel="both" ForeignServer="mscoree.dll">
+                <Class Id="{20EBF10C-B3E6-3BE4-8B7D-8FA13512AA26}" Context="InprocServer32" Description="PowerCmd.Converters.ColorToBrushConverter" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="PowerCmd.Converters.ColorToBrushConverter" Description="PowerCmd.Converters.ColorToBrushConverter" />
                 </Class>
-                <Class Id="{8E8BE4BA-0038-3D28-94F3-AEC4416AF08E}" Context="InprocServer32" Description="PowerCmd.Models.CommandButton" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="PowerCmd.Models.CommandButton" Description="PowerCmd.Models.CommandButton" />
-                </Class>
-                <Class Id="{A7F17D26-C04D-3432-A2F6-CB8C4433916C}" Context="InprocServer32" Description="PowerCmd.ViewModels.MainWindowModel" ThreadingModel="both" ForeignServer="mscoree.dll">
+                <Class Id="{31F5D0DD-0D6E-3A0B-876C-2BCD4E4982BF}" Context="InprocServer32" Description="PowerCmd.ViewModels.MainWindowModel" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="PowerCmd.ViewModels.MainWindowModel" Description="PowerCmd.ViewModels.MainWindowModel" />
                 </Class>
-                <Class Id="{AE21EAAC-AED1-38E5-9E3D-D8BE06980308}" Context="InprocServer32" Description="PowerCmd.Views.MainWindow" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="PowerCmd.Views.MainWindow" Description="PowerCmd.Views.MainWindow" />
-                </Class>
-                <Class Id="{C5D20891-7327-3D56-8920-1E9AA4EA068F}" Context="InprocServer32" Description="PowerCmd.App" ThreadingModel="both" ForeignServer="mscoree.dll">
+                <Class Id="{375357B3-7518-3524-B388-C5891F830E67}" Context="InprocServer32" Description="PowerCmd.App" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="PowerCmd.App" Description="PowerCmd.App" />
                 </Class>
-                <Class Id="{CA0B5308-7BF0-3AFB-A58F-353FDEF12D1F}" Context="InprocServer32" Description="PowerCmd.Converters.ErrorBrushConverter" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="PowerCmd.Converters.ErrorBrushConverter" Description="PowerCmd.Converters.ErrorBrushConverter" />
-                </Class>
-                <Class Id="{CF8390E7-31CB-3475-BB32-05FBA2DBE390}" Context="InprocServer32" Description="PowerCmd.Extensions.OutputAnalyzers.DirCommandAnalyzer" ThreadingModel="both" ForeignServer="mscoree.dll">
+                <Class Id="{492CCBB6-717C-3295-893E-D751D3DDA85E}" Context="InprocServer32" Description="PowerCmd.Extensions.OutputAnalyzers.DirCommandAnalyzer" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="PowerCmd.Extensions.OutputAnalyzers.DirCommandAnalyzer" Description="PowerCmd.Extensions.OutputAnalyzers.DirCommandAnalyzer" />
                 </Class>
-                <Class Id="{D344A248-9C0E-3B17-8ADD-108A08ABE666}" Context="InprocServer32" Description="XamlGeneratedNamespace.GeneratedInternalTypeHelper" ThreadingModel="both" ForeignServer="mscoree.dll">
-                    <ProgId Id="XamlGeneratedNamespace.GeneratedInternalTypeHelper" Description="XamlGeneratedNamespace.GeneratedInternalTypeHelper" />
+                <Class Id="{5831D1E3-2589-34C6-AE38-470157ABD012}" Context="InprocServer32" Description="PowerCmd.Extensions.OutputAnalyzers.MainBrainShowUpdatesCommandAnalyzer" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="PowerCmd.Extensions.OutputAnalyzers.MainBrainShowUpdatesCommandAnalyzer" Description="PowerCmd.Extensions.OutputAnalyzers.MainBrainShowUpdatesCommandAnalyzer" />
                 </Class>
-                <Class Id="{F06B7C82-CE17-36B8-9357-82208843A639}" Context="InprocServer32" Description="PowerCmd.Models.CommandExecutionResult" ThreadingModel="both" ForeignServer="mscoree.dll">
+                <Class Id="{792C1784-663E-39A3-8F39-679455EDEBA0}" Context="InprocServer32" Description="PowerCmd.Converters.ErrorBrushConverter" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="PowerCmd.Converters.ErrorBrushConverter" Description="PowerCmd.Converters.ErrorBrushConverter" />
+                </Class>
+                <Class Id="{79B03BF0-21D5-3E1B-A1EC-16FBDBA91251}" Context="InprocServer32" Description="PowerCmd.Models.CommandButton" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="PowerCmd.Models.CommandButton" Description="PowerCmd.Models.CommandButton" />
+                </Class>
+                <Class Id="{9863E612-F6E4-3958-B810-8C751AD1D9BC}" Context="InprocServer32" Description="PowerCmd.Views.MainWindow" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="PowerCmd.Views.MainWindow" Description="PowerCmd.Views.MainWindow" />
+                </Class>
+                <Class Id="{D62E6F34-ACD1-35FA-BE88-C853BD0DB6F8}" Context="InprocServer32" Description="PowerCmd.Extensions.OutputAnalyzers.MsBuildCommandAnalyzer" ThreadingModel="both" ForeignServer="mscoree.dll">
+                    <ProgId Id="PowerCmd.Extensions.OutputAnalyzers.MsBuildCommandAnalyzer" Description="PowerCmd.Extensions.OutputAnalyzers.MsBuildCommandAnalyzer" />
+                </Class>
+                <Class Id="{F2CF9190-DF88-36A7-91A6-69602640B852}" Context="InprocServer32" Description="PowerCmd.Models.CommandExecutionResult" ThreadingModel="both" ForeignServer="mscoree.dll">
                     <ProgId Id="PowerCmd.Models.CommandExecutionResult" Description="PowerCmd.Models.CommandExecutionResult" />
                 </Class>
                 <File Id="fil647AB095964D27951256CFFB2384505A" KeyPath="yes" Source="$(var.SourcePath)\PowerCmd.exe" />
                 <ProgId Id="Record" />
-                <RegistryValue Root="HKCR" Key="CLSID\{44779067-E5EC-3CFB-BE7A-77669569ABC1}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{44779067-E5EC-3CFB-BE7A-77669569ABC1}\InprocServer32\1.14.5918.42888" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.MsBuildCommandAnalyzer" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{44779067-E5EC-3CFB-BE7A-77669569ABC1}\InprocServer32\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{44779067-E5EC-3CFB-BE7A-77669569ABC1}\InprocServer32\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{44779067-E5EC-3CFB-BE7A-77669569ABC1}\InprocServer32\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{44779067-E5EC-3CFB-BE7A-77669569ABC1}\InprocServer32" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.MsBuildCommandAnalyzer" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{44779067-E5EC-3CFB-BE7A-77669569ABC1}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{44779067-E5EC-3CFB-BE7A-77669569ABC1}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{44779067-E5EC-3CFB-BE7A-77669569ABC1}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{453BEB55-976B-3670-BC7C-9D9A0A9FC54A}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{453BEB55-976B-3670-BC7C-9D9A0A9FC54A}\InprocServer32\1.14.5918.42888" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.MainBrainShowUpdatesCommandAnalyzer" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{453BEB55-976B-3670-BC7C-9D9A0A9FC54A}\InprocServer32\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{453BEB55-976B-3670-BC7C-9D9A0A9FC54A}\InprocServer32\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{453BEB55-976B-3670-BC7C-9D9A0A9FC54A}\InprocServer32\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{453BEB55-976B-3670-BC7C-9D9A0A9FC54A}\InprocServer32" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.MainBrainShowUpdatesCommandAnalyzer" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{453BEB55-976B-3670-BC7C-9D9A0A9FC54A}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{453BEB55-976B-3670-BC7C-9D9A0A9FC54A}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{453BEB55-976B-3670-BC7C-9D9A0A9FC54A}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7BBAC106-2A90-3001-BB3A-821544ECE9E9}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7BBAC106-2A90-3001-BB3A-821544ECE9E9}\InprocServer32\1.14.5918.42888" Name="Class" Value="PowerCmd.Converters.ColorToBrushConverter" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7BBAC106-2A90-3001-BB3A-821544ECE9E9}\InprocServer32\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7BBAC106-2A90-3001-BB3A-821544ECE9E9}\InprocServer32\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7BBAC106-2A90-3001-BB3A-821544ECE9E9}\InprocServer32\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7BBAC106-2A90-3001-BB3A-821544ECE9E9}\InprocServer32" Name="Class" Value="PowerCmd.Converters.ColorToBrushConverter" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7BBAC106-2A90-3001-BB3A-821544ECE9E9}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7BBAC106-2A90-3001-BB3A-821544ECE9E9}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{7BBAC106-2A90-3001-BB3A-821544ECE9E9}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{8E8BE4BA-0038-3D28-94F3-AEC4416AF08E}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{8E8BE4BA-0038-3D28-94F3-AEC4416AF08E}\InprocServer32\1.14.5918.42888" Name="Class" Value="PowerCmd.Models.CommandButton" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{8E8BE4BA-0038-3D28-94F3-AEC4416AF08E}\InprocServer32\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{8E8BE4BA-0038-3D28-94F3-AEC4416AF08E}\InprocServer32\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{8E8BE4BA-0038-3D28-94F3-AEC4416AF08E}\InprocServer32\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{8E8BE4BA-0038-3D28-94F3-AEC4416AF08E}\InprocServer32" Name="Class" Value="PowerCmd.Models.CommandButton" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{8E8BE4BA-0038-3D28-94F3-AEC4416AF08E}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{8E8BE4BA-0038-3D28-94F3-AEC4416AF08E}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{8E8BE4BA-0038-3D28-94F3-AEC4416AF08E}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{A7F17D26-C04D-3432-A2F6-CB8C4433916C}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{A7F17D26-C04D-3432-A2F6-CB8C4433916C}\InprocServer32\1.14.5918.42888" Name="Class" Value="PowerCmd.ViewModels.MainWindowModel" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{A7F17D26-C04D-3432-A2F6-CB8C4433916C}\InprocServer32\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{A7F17D26-C04D-3432-A2F6-CB8C4433916C}\InprocServer32\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{A7F17D26-C04D-3432-A2F6-CB8C4433916C}\InprocServer32\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{A7F17D26-C04D-3432-A2F6-CB8C4433916C}\InprocServer32" Name="Class" Value="PowerCmd.ViewModels.MainWindowModel" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{A7F17D26-C04D-3432-A2F6-CB8C4433916C}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{A7F17D26-C04D-3432-A2F6-CB8C4433916C}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{A7F17D26-C04D-3432-A2F6-CB8C4433916C}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{AE21EAAC-AED1-38E5-9E3D-D8BE06980308}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{AE21EAAC-AED1-38E5-9E3D-D8BE06980308}\InprocServer32\1.14.5918.42888" Name="Class" Value="PowerCmd.Views.MainWindow" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{AE21EAAC-AED1-38E5-9E3D-D8BE06980308}\InprocServer32\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{AE21EAAC-AED1-38E5-9E3D-D8BE06980308}\InprocServer32\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{AE21EAAC-AED1-38E5-9E3D-D8BE06980308}\InprocServer32\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{AE21EAAC-AED1-38E5-9E3D-D8BE06980308}\InprocServer32" Name="Class" Value="PowerCmd.Views.MainWindow" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{AE21EAAC-AED1-38E5-9E3D-D8BE06980308}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{AE21EAAC-AED1-38E5-9E3D-D8BE06980308}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{AE21EAAC-AED1-38E5-9E3D-D8BE06980308}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{C5D20891-7327-3D56-8920-1E9AA4EA068F}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{C5D20891-7327-3D56-8920-1E9AA4EA068F}\InprocServer32\1.14.5918.42888" Name="Class" Value="PowerCmd.App" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{C5D20891-7327-3D56-8920-1E9AA4EA068F}\InprocServer32\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{C5D20891-7327-3D56-8920-1E9AA4EA068F}\InprocServer32\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{C5D20891-7327-3D56-8920-1E9AA4EA068F}\InprocServer32\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{C5D20891-7327-3D56-8920-1E9AA4EA068F}\InprocServer32" Name="Class" Value="PowerCmd.App" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{C5D20891-7327-3D56-8920-1E9AA4EA068F}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{C5D20891-7327-3D56-8920-1E9AA4EA068F}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{C5D20891-7327-3D56-8920-1E9AA4EA068F}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CA0B5308-7BF0-3AFB-A58F-353FDEF12D1F}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CA0B5308-7BF0-3AFB-A58F-353FDEF12D1F}\InprocServer32\1.14.5918.42888" Name="Class" Value="PowerCmd.Converters.ErrorBrushConverter" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CA0B5308-7BF0-3AFB-A58F-353FDEF12D1F}\InprocServer32\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CA0B5308-7BF0-3AFB-A58F-353FDEF12D1F}\InprocServer32\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CA0B5308-7BF0-3AFB-A58F-353FDEF12D1F}\InprocServer32\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CA0B5308-7BF0-3AFB-A58F-353FDEF12D1F}\InprocServer32" Name="Class" Value="PowerCmd.Converters.ErrorBrushConverter" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CA0B5308-7BF0-3AFB-A58F-353FDEF12D1F}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CA0B5308-7BF0-3AFB-A58F-353FDEF12D1F}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CA0B5308-7BF0-3AFB-A58F-353FDEF12D1F}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CF8390E7-31CB-3475-BB32-05FBA2DBE390}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CF8390E7-31CB-3475-BB32-05FBA2DBE390}\InprocServer32\1.14.5918.42888" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.DirCommandAnalyzer" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CF8390E7-31CB-3475-BB32-05FBA2DBE390}\InprocServer32\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CF8390E7-31CB-3475-BB32-05FBA2DBE390}\InprocServer32\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CF8390E7-31CB-3475-BB32-05FBA2DBE390}\InprocServer32\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CF8390E7-31CB-3475-BB32-05FBA2DBE390}\InprocServer32" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.DirCommandAnalyzer" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CF8390E7-31CB-3475-BB32-05FBA2DBE390}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CF8390E7-31CB-3475-BB32-05FBA2DBE390}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{CF8390E7-31CB-3475-BB32-05FBA2DBE390}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{D344A248-9C0E-3B17-8ADD-108A08ABE666}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{D344A248-9C0E-3B17-8ADD-108A08ABE666}\InprocServer32\1.14.5918.42888" Name="Class" Value="XamlGeneratedNamespace.GeneratedInternalTypeHelper" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{D344A248-9C0E-3B17-8ADD-108A08ABE666}\InprocServer32\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{D344A248-9C0E-3B17-8ADD-108A08ABE666}\InprocServer32\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{D344A248-9C0E-3B17-8ADD-108A08ABE666}\InprocServer32\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{D344A248-9C0E-3B17-8ADD-108A08ABE666}\InprocServer32" Name="Class" Value="XamlGeneratedNamespace.GeneratedInternalTypeHelper" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{D344A248-9C0E-3B17-8ADD-108A08ABE666}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{D344A248-9C0E-3B17-8ADD-108A08ABE666}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{D344A248-9C0E-3B17-8ADD-108A08ABE666}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{F06B7C82-CE17-36B8-9357-82208843A639}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{F06B7C82-CE17-36B8-9357-82208843A639}\InprocServer32\1.14.5918.42888" Name="Class" Value="PowerCmd.Models.CommandExecutionResult" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{F06B7C82-CE17-36B8-9357-82208843A639}\InprocServer32\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{F06B7C82-CE17-36B8-9357-82208843A639}\InprocServer32\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{F06B7C82-CE17-36B8-9357-82208843A639}\InprocServer32\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{F06B7C82-CE17-36B8-9357-82208843A639}\InprocServer32" Name="Class" Value="PowerCmd.Models.CommandExecutionResult" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{F06B7C82-CE17-36B8-9357-82208843A639}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{F06B7C82-CE17-36B8-9357-82208843A639}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="CLSID\{F06B7C82-CE17-36B8-9357-82208843A639}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{5E43B18F-025F-3D46-BF90-AD6709EFACD2}\1.14.5918.42888" Name="Class" Value="PowerCmd.Communication.NativeConsoleUtilities+SECURITY_ATTRIBUTES" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{5E43B18F-025F-3D46-BF90-AD6709EFACD2}\1.14.5918.42888" Name="Assembly" Value="PowerCmd, Version=1.14.5918.42888, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{5E43B18F-025F-3D46-BF90-AD6709EFACD2}\1.14.5918.42888" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
-                <RegistryValue Root="HKCR" Key="Record\{5E43B18F-025F-3D46-BF90-AD6709EFACD2}\1.14.5918.42888" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{20EBF10C-B3E6-3BE4-8B7D-8FA13512AA26}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{20EBF10C-B3E6-3BE4-8B7D-8FA13512AA26}\InprocServer32\1.15.5919.23638" Name="Class" Value="PowerCmd.Converters.ColorToBrushConverter" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{20EBF10C-B3E6-3BE4-8B7D-8FA13512AA26}\InprocServer32\1.15.5919.23638" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{20EBF10C-B3E6-3BE4-8B7D-8FA13512AA26}\InprocServer32\1.15.5919.23638" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{20EBF10C-B3E6-3BE4-8B7D-8FA13512AA26}\InprocServer32\1.15.5919.23638" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{20EBF10C-B3E6-3BE4-8B7D-8FA13512AA26}\InprocServer32" Name="Class" Value="PowerCmd.Converters.ColorToBrushConverter" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{20EBF10C-B3E6-3BE4-8B7D-8FA13512AA26}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{20EBF10C-B3E6-3BE4-8B7D-8FA13512AA26}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{20EBF10C-B3E6-3BE4-8B7D-8FA13512AA26}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{31F5D0DD-0D6E-3A0B-876C-2BCD4E4982BF}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{31F5D0DD-0D6E-3A0B-876C-2BCD4E4982BF}\InprocServer32\1.15.5919.23638" Name="Class" Value="PowerCmd.ViewModels.MainWindowModel" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{31F5D0DD-0D6E-3A0B-876C-2BCD4E4982BF}\InprocServer32\1.15.5919.23638" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{31F5D0DD-0D6E-3A0B-876C-2BCD4E4982BF}\InprocServer32\1.15.5919.23638" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{31F5D0DD-0D6E-3A0B-876C-2BCD4E4982BF}\InprocServer32\1.15.5919.23638" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{31F5D0DD-0D6E-3A0B-876C-2BCD4E4982BF}\InprocServer32" Name="Class" Value="PowerCmd.ViewModels.MainWindowModel" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{31F5D0DD-0D6E-3A0B-876C-2BCD4E4982BF}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{31F5D0DD-0D6E-3A0B-876C-2BCD4E4982BF}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{31F5D0DD-0D6E-3A0B-876C-2BCD4E4982BF}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{375357B3-7518-3524-B388-C5891F830E67}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{375357B3-7518-3524-B388-C5891F830E67}\InprocServer32\1.15.5919.23638" Name="Class" Value="PowerCmd.App" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{375357B3-7518-3524-B388-C5891F830E67}\InprocServer32\1.15.5919.23638" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{375357B3-7518-3524-B388-C5891F830E67}\InprocServer32\1.15.5919.23638" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{375357B3-7518-3524-B388-C5891F830E67}\InprocServer32\1.15.5919.23638" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{375357B3-7518-3524-B388-C5891F830E67}\InprocServer32" Name="Class" Value="PowerCmd.App" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{375357B3-7518-3524-B388-C5891F830E67}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{375357B3-7518-3524-B388-C5891F830E67}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{375357B3-7518-3524-B388-C5891F830E67}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{492CCBB6-717C-3295-893E-D751D3DDA85E}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{492CCBB6-717C-3295-893E-D751D3DDA85E}\InprocServer32\1.15.5919.23638" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.DirCommandAnalyzer" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{492CCBB6-717C-3295-893E-D751D3DDA85E}\InprocServer32\1.15.5919.23638" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{492CCBB6-717C-3295-893E-D751D3DDA85E}\InprocServer32\1.15.5919.23638" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{492CCBB6-717C-3295-893E-D751D3DDA85E}\InprocServer32\1.15.5919.23638" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{492CCBB6-717C-3295-893E-D751D3DDA85E}\InprocServer32" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.DirCommandAnalyzer" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{492CCBB6-717C-3295-893E-D751D3DDA85E}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{492CCBB6-717C-3295-893E-D751D3DDA85E}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{492CCBB6-717C-3295-893E-D751D3DDA85E}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{5831D1E3-2589-34C6-AE38-470157ABD012}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{5831D1E3-2589-34C6-AE38-470157ABD012}\InprocServer32\1.15.5919.23638" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.MainBrainShowUpdatesCommandAnalyzer" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{5831D1E3-2589-34C6-AE38-470157ABD012}\InprocServer32\1.15.5919.23638" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{5831D1E3-2589-34C6-AE38-470157ABD012}\InprocServer32\1.15.5919.23638" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{5831D1E3-2589-34C6-AE38-470157ABD012}\InprocServer32\1.15.5919.23638" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{5831D1E3-2589-34C6-AE38-470157ABD012}\InprocServer32" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.MainBrainShowUpdatesCommandAnalyzer" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{5831D1E3-2589-34C6-AE38-470157ABD012}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{5831D1E3-2589-34C6-AE38-470157ABD012}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{5831D1E3-2589-34C6-AE38-470157ABD012}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{792C1784-663E-39A3-8F39-679455EDEBA0}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{792C1784-663E-39A3-8F39-679455EDEBA0}\InprocServer32\1.15.5919.23638" Name="Class" Value="PowerCmd.Converters.ErrorBrushConverter" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{792C1784-663E-39A3-8F39-679455EDEBA0}\InprocServer32\1.15.5919.23638" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{792C1784-663E-39A3-8F39-679455EDEBA0}\InprocServer32\1.15.5919.23638" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{792C1784-663E-39A3-8F39-679455EDEBA0}\InprocServer32\1.15.5919.23638" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{792C1784-663E-39A3-8F39-679455EDEBA0}\InprocServer32" Name="Class" Value="PowerCmd.Converters.ErrorBrushConverter" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{792C1784-663E-39A3-8F39-679455EDEBA0}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{792C1784-663E-39A3-8F39-679455EDEBA0}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{792C1784-663E-39A3-8F39-679455EDEBA0}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{79B03BF0-21D5-3E1B-A1EC-16FBDBA91251}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{79B03BF0-21D5-3E1B-A1EC-16FBDBA91251}\InprocServer32\1.15.5919.23638" Name="Class" Value="PowerCmd.Models.CommandButton" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{79B03BF0-21D5-3E1B-A1EC-16FBDBA91251}\InprocServer32\1.15.5919.23638" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{79B03BF0-21D5-3E1B-A1EC-16FBDBA91251}\InprocServer32\1.15.5919.23638" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{79B03BF0-21D5-3E1B-A1EC-16FBDBA91251}\InprocServer32\1.15.5919.23638" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{79B03BF0-21D5-3E1B-A1EC-16FBDBA91251}\InprocServer32" Name="Class" Value="PowerCmd.Models.CommandButton" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{79B03BF0-21D5-3E1B-A1EC-16FBDBA91251}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{79B03BF0-21D5-3E1B-A1EC-16FBDBA91251}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{79B03BF0-21D5-3E1B-A1EC-16FBDBA91251}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9863E612-F6E4-3958-B810-8C751AD1D9BC}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9863E612-F6E4-3958-B810-8C751AD1D9BC}\InprocServer32\1.15.5919.23638" Name="Class" Value="PowerCmd.Views.MainWindow" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9863E612-F6E4-3958-B810-8C751AD1D9BC}\InprocServer32\1.15.5919.23638" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9863E612-F6E4-3958-B810-8C751AD1D9BC}\InprocServer32\1.15.5919.23638" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9863E612-F6E4-3958-B810-8C751AD1D9BC}\InprocServer32\1.15.5919.23638" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9863E612-F6E4-3958-B810-8C751AD1D9BC}\InprocServer32" Name="Class" Value="PowerCmd.Views.MainWindow" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9863E612-F6E4-3958-B810-8C751AD1D9BC}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9863E612-F6E4-3958-B810-8C751AD1D9BC}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{9863E612-F6E4-3958-B810-8C751AD1D9BC}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D62E6F34-ACD1-35FA-BE88-C853BD0DB6F8}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D62E6F34-ACD1-35FA-BE88-C853BD0DB6F8}\InprocServer32\1.15.5919.23638" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.MsBuildCommandAnalyzer" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D62E6F34-ACD1-35FA-BE88-C853BD0DB6F8}\InprocServer32\1.15.5919.23638" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D62E6F34-ACD1-35FA-BE88-C853BD0DB6F8}\InprocServer32\1.15.5919.23638" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D62E6F34-ACD1-35FA-BE88-C853BD0DB6F8}\InprocServer32\1.15.5919.23638" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D62E6F34-ACD1-35FA-BE88-C853BD0DB6F8}\InprocServer32" Name="Class" Value="PowerCmd.Extensions.OutputAnalyzers.MsBuildCommandAnalyzer" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D62E6F34-ACD1-35FA-BE88-C853BD0DB6F8}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D62E6F34-ACD1-35FA-BE88-C853BD0DB6F8}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{D62E6F34-ACD1-35FA-BE88-C853BD0DB6F8}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F2CF9190-DF88-36A7-91A6-69602640B852}\Implemented Categories\{62C8FE65-4EBB-45e7-B440-6E39B2CDBF29}" Value="" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F2CF9190-DF88-36A7-91A6-69602640B852}\InprocServer32\1.15.5919.23638" Name="Class" Value="PowerCmd.Models.CommandExecutionResult" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F2CF9190-DF88-36A7-91A6-69602640B852}\InprocServer32\1.15.5919.23638" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F2CF9190-DF88-36A7-91A6-69602640B852}\InprocServer32\1.15.5919.23638" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F2CF9190-DF88-36A7-91A6-69602640B852}\InprocServer32\1.15.5919.23638" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F2CF9190-DF88-36A7-91A6-69602640B852}\InprocServer32" Name="Class" Value="PowerCmd.Models.CommandExecutionResult" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F2CF9190-DF88-36A7-91A6-69602640B852}\InprocServer32" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F2CF9190-DF88-36A7-91A6-69602640B852}\InprocServer32" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="CLSID\{F2CF9190-DF88-36A7-91A6-69602640B852}\InprocServer32" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{C72FA0EA-1596-345F-A2F1-87B67FAD8028}\1.15.5919.23638" Name="Class" Value="PowerCmd.Communication.NativeConsoleUtilities+SECURITY_ATTRIBUTES" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{C72FA0EA-1596-345F-A2F1-87B67FAD8028}\1.15.5919.23638" Name="Assembly" Value="PowerCmd, Version=1.15.5919.23638, Culture=neutral, PublicKeyToken=null" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{C72FA0EA-1596-345F-A2F1-87B67FAD8028}\1.15.5919.23638" Name="RuntimeVersion" Value="v4.0.30319" Type="string" Action="write" />
+                <RegistryValue Root="HKCR" Key="Record\{C72FA0EA-1596-345F-A2F1-87B67FAD8028}\1.15.5919.23638" Name="CodeBase" Value="file:///[#fil647AB095964D27951256CFFB2384505A]" Type="string" Action="write" />
             </Component>
             <Component Id="cmpBC1C80AD27DA44B230ECB65C55C918DA" Directory="RootDirectory" Guid="*">
                 <File Id="filB47849AA9DAC7CCA50C3165B7BC26469" KeyPath="yes" Source="$(var.SourcePath)\PowerCmd.exe.config" />
@@ -597,6 +585,9 @@
             </Component>
             <Component Id="cmpB24AE2837C8A4D86237F4E13892363A9" Directory="RootDirectory" Guid="*">
                 <File Id="fil640D11CC844BB623F73FB988A429FD7B" KeyPath="yes" Source="$(var.SourcePath)\PowerCmd.vshost.exe.config" />
+            </Component>
+            <Component Id="cmp7E5DF610D81088F7E29435E06E748F82" Directory="RootDirectory" Guid="*">
+                <File Id="fil9BB62FC3FB0AD55A80389348F5269484" KeyPath="yes" Source="$(var.SourcePath)\PowerCmd.vshost.exe.manifest" />
             </Component>
         </ComponentGroup>
     </Fragment>

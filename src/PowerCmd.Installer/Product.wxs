@@ -58,13 +58,20 @@
                 <RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
                 <RemoveFolder Id="ManufacturerProgramsFolder" On="uninstall"/>
 
+                <RegistryKey Root="HKCR" Key="Directory\shell\PowerCmd" Action="createAndRemoveOnUninstall">
+                    <RegistryValue Type="string" Value="PowerCmd"/>
+                </RegistryKey>
+                <RegistryKey Root="HKCR" Key="Directory\shell\PowerCmd\command" Action="createAndRemoveOnUninstall">
+                    <RegistryValue Type="string" Value="&quot;C:\Program Files (x86)\Rico Suter\PowerCmd\PowerCmd.exe&quot; %1"/>
+                </RegistryKey>
+
                 <RegistryValue Root="HKCU"
                                Key="Software\RicoSuter\PowerCmd"
                                Name="installed" Type="integer"
                                Value="1" KeyPath="yes"/>
 
                 <Shortcut Id="ApplicationStartMenuShortcut"          
-                          Name="PowerCmd"
+                          Name="Open PowerCmd"
                           Description="PowerCmd"
                           Target="[#fil647AB095964D27951256CFFB2384505A]"
                           WorkingDirectory="RootDirectory"/>
