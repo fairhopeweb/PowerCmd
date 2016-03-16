@@ -366,7 +366,7 @@ namespace PowerCmd.Views
 
         private void OnDirectoryDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var listBox = ((ListBox)sender);
+            var listBox = (ListBox)sender;
             var directory = listBox.SelectedItem.ToString();
             listBox.SelectedItem = null;
 
@@ -374,6 +374,12 @@ namespace PowerCmd.Views
             WriteCommand(command);
 
             Input.Focus();
+        }
+
+        private void OnDirectoryKeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+                OnDirectoryDoubleClick(sender, null);
         }
     }
 }
