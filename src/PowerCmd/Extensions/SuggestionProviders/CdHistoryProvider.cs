@@ -32,7 +32,7 @@ namespace PowerCmd.Extensions.SuggestionProviders
                     : new string[] { };
 
                 var prefix = string.Join("/", segments.Take(segments.Length - 1));
-                cwd = segments.Length > 1 ? (prefix.Contains(":") ? prefix : Path.Combine(cwd, prefix)) : cwd;
+                cwd = segments.Length > 1 ? (prefix.Contains(":") ? prefix + "/" : Path.Combine(cwd, prefix)) : cwd;
 
                 var directories = (await Task.Run(() => Directory.GetDirectories(cwd)))
                     .Select(p => "cd " + (!string.IsNullOrEmpty(prefix) ? prefix + "/" + Path.GetFileName(p) : Path.GetFileName(p))).ToList();
