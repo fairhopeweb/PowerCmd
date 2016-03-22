@@ -41,7 +41,7 @@ namespace PowerCmd.Views
             _suggestionProviders = new List<ISuggestionProvider>
             {
                 new CdHistoryProvider(Model),
-                new HistorySuggestionProvider(Model)
+                new DefaultSuggestionProvider(Model)
             };
         }
 
