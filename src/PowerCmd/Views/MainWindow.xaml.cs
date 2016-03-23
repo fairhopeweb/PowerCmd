@@ -186,8 +186,8 @@ namespace PowerCmd.Views
                 if (commandButton != null)
                     Input.Text = commandButton.Text;
 
-                if (WriteCommand(Input.Text))
-                    Input.Text = "";
+                WriteCommand(Input.Text);
+                Input.Text = "";
             }
             else if (e.Key == Key.C && Keyboard.IsKeyDown(Key.LeftCtrl))
             {
@@ -226,20 +226,12 @@ namespace PowerCmd.Views
                 _suggestionsDirty = true;
         }
 
-        private bool WriteCommand(string command)
+        private void WriteCommand(string command)
         {
             if (!Model.IsRunning)
-            {
-                if (Model.IsRunning)
-                    Input.Text = command;
-                else
-                {
-                    Model.RunCommand(command);
-                    _cmdProcessController.WriteLine(command);
-                }
-                return true;
-            }
-            return false;
+                Model.RunCommand(command);
+
+            _cmdProcessController.WriteLine(command);
         }
 
         private void OnCommandButtonClicked(object sender, RoutedEventArgs e)
