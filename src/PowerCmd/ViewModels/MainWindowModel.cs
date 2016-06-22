@@ -58,8 +58,15 @@ namespace PowerCmd.ViewModels
         public string CurrentWorkingDirectory
         {
             get { return _currentWorkingDirectory; }
-            set { Set(ref _currentWorkingDirectory, value); }
+            set
+            {
+                if (Set(ref _currentWorkingDirectory, value))
+                    RaisePropertyChanged(() => CurrentWindowTitle);
+            }
         }
+
+        /// <summary>Gets or sets the currentWorkingDirectory. </summary>
+        public string CurrentWindowTitle => "PowerCmd (" + CurrentWorkingDirectory + ")";
 
         /// <summary>Gets or sets a value indicating whether a command is running. </summary>
         public bool IsRunning

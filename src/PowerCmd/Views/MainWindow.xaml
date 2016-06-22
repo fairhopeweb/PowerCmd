@@ -9,7 +9,7 @@
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         mc:Ignorable="d" MinWidth="800" MinHeight="500"
         PreviewKeyUp="OnInputPreviewKeyUp"
-        Title="PowerCmd" Height="500" Width="900" WindowStartupLocation="CenterScreen">
+        Height="500" Width="900" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
         <viewModels:MainWindowModel x:Key="Model"/>
@@ -20,6 +20,9 @@
         <converters1:ErrorBrushConverter x:Key="ErrorBrushConverter" />
         <converters1:ColorToBrushConverter x:Key="ColorToBrushConverter" />
     </Window.Resources>
+    <Window.Title>
+        <Binding Source="{StaticResource Model}" Path="CurrentWindowTitle" />
+    </Window.Title>
 
     <Grid DataContext="{StaticResource Model}" Margin="8">
         <Grid.ColumnDefinitions>
