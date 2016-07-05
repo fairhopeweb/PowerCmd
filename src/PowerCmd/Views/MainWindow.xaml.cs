@@ -359,13 +359,16 @@ namespace PowerCmd.Views
         private void OnDirectoryDoubleClick(object sender, MouseButtonEventArgs e)
         {
             var listBox = (ListBox)sender;
-            var directory = listBox.SelectedItem.ToString();
-            listBox.SelectedItem = null;
+            if (listBox.SelectedItem != null)
+            {
+                var directory = listBox.SelectedItem.ToString();
+                listBox.SelectedItem = null;
 
-            var command = "cd \"" + Path.Combine(Model.RootDirectory, directory) + "\"";
-            WriteCommand(command);
+                var command = "cd \"" + Path.Combine(Model.RootDirectory, directory) + "\"";
+                WriteCommand(command);
 
-            Input.Focus();
+                Input.Focus();
+            }
         }
 
         private void OnDirectoryKeyUp(object sender, KeyEventArgs e)
