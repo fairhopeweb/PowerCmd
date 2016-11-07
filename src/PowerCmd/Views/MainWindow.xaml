@@ -9,7 +9,8 @@
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         mc:Ignorable="d" MinWidth="800" MinHeight="500"
         PreviewKeyUp="OnInputPreviewKeyUp"
-        Height="500" Width="900" WindowStartupLocation="CenterScreen">
+        Height="905" Width="1058" WindowStartupLocation="CenterScreen"
+        >
 
     <Window.Resources>
         <viewModels:MainWindowModel x:Key="Model"/>
@@ -29,26 +30,115 @@
             <ColumnDefinition Width="240" MinWidth="240" MaxWidth="360" />
             <ColumnDefinition Width="8" />
             <ColumnDefinition Width="*" MinWidth="220" />
-            <ColumnDefinition Width="8" />
-            <ColumnDefinition Width="240" MinWidth="240" MaxWidth="360" />
         </Grid.ColumnDefinitions>
 
-        <Grid Margin="0,0,0,0">
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
+                <RowDefinition Height="500" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Projects" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />
-            <ListBox Grid.Row="1" ItemsSource="{Binding Directories}" 
-                     KeyUp="OnDirectoryKeyUp"
-                     MouseDoubleClick="OnDirectoryDoubleClick" />
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-            <StackPanel Grid.Row="2" Margin="0,8,0,0">
-                <TextBlock Text="Directory" FontWeight="Bold" Margin="0,0,0,4" />
-                <TextBox Text="{Binding RootDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
-            </StackPanel>
+                <StackPanel Grid.Row="0" Margin="0,0,0,5">
+                    <TextBlock Text="Directory" FontSize="16" FontWeight="Bold" Margin="0,0,0,4" />
+                    <TextBox Text="{Binding RootDirectory, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                </StackPanel>
+
+                <ListBox Grid.Row="1" ItemsSource="{Binding Directories}" 
+                    KeyUp="OnDirectoryKeyUp"
+                    MouseDoubleClick="OnDirectoryDoubleClick" />
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <StackPanel Margin="0,5,0,16">
+                    <TextBlock Text="Current Working Directory" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />
+                    <TextBlock Text="{Binding CurrentWorkingDirectory}" Margin="0,0,0,4" />
+                    <Button Content="Open in Explorer" Focusable="False"
+                        Margin="0,4,0,0" Padding="8,4,8,4"
+                        Command="{Binding OpenCurrentWorkingDirectoryInExplorerCommand}"></Button>
+                    <Button Content="Copy Path" Focusable="False"
+                        Margin="0,4,0,0" Padding="8,4,8,4"
+                        Click="OnCopyPath"></Button>
+                </StackPanel>
+
+                <ScrollViewer Grid.Row="1" Margin="0,0,-8,8"
+                          HorizontalScrollBarVisibility="Disabled" 
+                          VerticalScrollBarVisibility="Visible">
+                    <StackPanel Margin="0,0,8,0">
+                        <StackPanel Visibility="{Binding LastCommand, Converter={StaticResource VisibilityConverter}}">
+                            <TextBlock Text="Command" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />
+                            <TextBlock Text="{Binding LastCommand.Command}" FontWeight="Bold" Margin="0,0,0,8"
+                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+
+                            <TextBlock Text="Working Directory" FontWeight="Bold" Margin="0,0,0,4" />
+                            <TextBlock Text="{Binding LastCommand.WorkingDirectory}" Margin="0,0,0,8"
+                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+
+                            <TextBlock Text="Start time" FontWeight="Bold" Margin="0,0,0,4"/>
+                            <TextBlock Margin="0,0,0,8" Text="{Binding LastCommand.StartTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
+                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+
+                            <StackPanel Margin="0,0,0,0" Visibility="{Binding IsRunning, Converter={StaticResource VisibilityConverter}}">
+                                <ProgressBar IsIndeterminate="True" Height="24"></ProgressBar>
+                                <Button Content="Stop Script (Ctrl-C)" Focusable="False" Margin="0,8,0,0" Padding="8,4,8,4" Click="OnStopScript"></Button>
+                            </StackPanel>
+
+                            <StackPanel Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}">
+                                <TextBlock Text="End time" FontWeight="Bold" Margin="0,0,0,4" />
+                                <StackPanel Margin="0,0,0,8">
+                                    <TextBlock Text="{Binding LastCommand.EndTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
+                                       Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                                </StackPanel>
+
+                                <TextBlock Text="Duration" FontWeight="Bold" Margin="0,0,0,4"/>
+                                <StackPanel Margin="0,0,0,8">
+                                    <TextBlock Text="{Binding LastCommand.Duration, Converter={StaticResource TimeSpanConverter}, ConverterParameter='seconds,plain'}" 
+                                       Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
+                                </StackPanel>
+                            </StackPanel>
+
+                            <Border Margin="0,0,0,0" Padding="8,4,8,4" 
+                            Visibility="{Binding LastCommand.Results.Count, Converter={StaticResource VisibilityConverter}}"
+                            BorderBrush="LightGray" Background="GhostWhite" BorderThickness="1">
+                                <ItemsControl ItemsSource="{Binding LastCommand.Results}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <TextBlock Margin="0,4,0,0" Text="{Binding Key}" FontWeight="Bold"
+                                               Foreground="{Binding Color, Converter={StaticResource ColorToBrushConverter}}"/>
+                                                <TextBlock Margin="0,0,0,4" Text="{Binding Value}" 
+                                               Foreground="{Binding Color, Converter={StaticResource ColorToBrushConverter}}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                    <Button Content="Save Command Buttons" Focusable="False"
+                        Margin="0,4,0,0" Padding="8,4,8,4"
+                        Click="OnSaveCommandButtons"></Button>
+                    <Button Content="Load Command Buttons" Focusable="False"
+                        Margin="0,4,0,0" Padding="8,4,8,4"
+                        Click="OnLoadCommandButtons"></Button>
+                </StackPanel>
+            </Grid>
+
         </Grid>
 
         <GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" Margin="2,0,2,0" />
@@ -102,93 +192,6 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
-            </StackPanel>
-        </Grid>
-
-        <GridSplitter Grid.Column="3" HorizontalAlignment="Stretch" Margin="2,0,2,0" />
-
-        <Grid Grid.Column="4" Margin="0,0,0,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-
-            <StackPanel Margin="0,0,0,16">
-                <TextBlock Text="Current Working Directory" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />
-                <TextBlock Text="{Binding CurrentWorkingDirectory}" Margin="0,0,0,4" />
-                <Button Content="Open in Explorer" Focusable="False"
-                        Margin="0,4,0,0" Padding="8,4,8,4"
-                        Command="{Binding OpenCurrentWorkingDirectoryInExplorerCommand}"></Button>
-                <Button Content="Copy Path" Focusable="False"
-                        Margin="0,4,0,0" Padding="8,4,8,4"
-                        Click="OnCopyPath"></Button>
-            </StackPanel>
-
-            <ScrollViewer Grid.Row="1" Margin="0,0,-8,8"
-                          HorizontalScrollBarVisibility="Disabled" 
-                          VerticalScrollBarVisibility="Visible">
-                <StackPanel Margin="0,0,8,0">
-                    <StackPanel Visibility="{Binding LastCommand, Converter={StaticResource VisibilityConverter}}">
-                        <TextBlock Text="Command" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />
-                        <TextBlock Text="{Binding LastCommand.Command}" FontWeight="Bold" Margin="0,0,0,8"
-                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-
-                        <TextBlock Text="Working Directory" FontWeight="Bold" Margin="0,0,0,4" />
-                        <TextBlock Text="{Binding LastCommand.WorkingDirectory}" Margin="0,0,0,8"
-                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-
-                        <TextBlock Text="Start time" FontWeight="Bold" Margin="0,0,0,4"/>
-                        <TextBlock Margin="0,0,0,8" Text="{Binding LastCommand.StartTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
-                                   Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-
-                        <StackPanel Margin="0,0,0,0" Visibility="{Binding IsRunning, Converter={StaticResource VisibilityConverter}}">
-                            <ProgressBar IsIndeterminate="True" Height="24"></ProgressBar>
-                            <Button Content="Stop Script (Ctrl-C)" Focusable="False" Margin="0,8,0,0" Padding="8,4,8,4" Click="OnStopScript"></Button>
-                        </StackPanel>
-
-                        <StackPanel Visibility="{Binding LastCommand.IsRunning, Converter={StaticResource NotConverter}}">
-                            <TextBlock Text="End time" FontWeight="Bold" Margin="0,0,0,4" />
-                            <StackPanel Margin="0,0,0,8">
-                                <TextBlock Text="{Binding LastCommand.EndTime, Converter={StaticResource DateTimeConverter}, ConverterParameter='timewithseconds'}" 
-                                       Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-                            </StackPanel>
-
-                            <TextBlock Text="Duration" FontWeight="Bold" Margin="0,0,0,4"/>
-                            <StackPanel Margin="0,0,0,8">
-                                <TextBlock Text="{Binding LastCommand.Duration, Converter={StaticResource TimeSpanConverter}, ConverterParameter='seconds,plain'}" 
-                                       Foreground="{Binding LastCommand.HasErrors, Converter={StaticResource ErrorBrushConverter}}" />
-                            </StackPanel>
-                        </StackPanel>
-
-                        <Border Margin="0,0,0,0" Padding="8,4,8,4" 
-                            Visibility="{Binding LastCommand.Results.Count, Converter={StaticResource VisibilityConverter}}"
-                            BorderBrush="LightGray" Background="GhostWhite" BorderThickness="1">
-                            <ItemsControl ItemsSource="{Binding LastCommand.Results}">
-                                <ItemsControl.ItemTemplate>
-                                    <DataTemplate>
-                                        <StackPanel>
-                                            <TextBlock Margin="0,4,0,0" Text="{Binding Key}" FontWeight="Bold"
-                                               Foreground="{Binding Color, Converter={StaticResource ColorToBrushConverter}}"/>
-                                            <TextBlock Margin="0,0,0,4" Text="{Binding Value}" 
-                                               Foreground="{Binding Color, Converter={StaticResource ColorToBrushConverter}}" />
-                                        </StackPanel>
-                                    </DataTemplate>
-                                </ItemsControl.ItemTemplate>
-                            </ItemsControl>
-                        </Border>
-                    </StackPanel>
-                </StackPanel>
-            </ScrollViewer>
-
-            <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
-                <Button Content="Save Command Buttons" Focusable="False"
-                        Margin="0,4,0,0" Padding="8,4,8,4"
-                        Click="OnSaveCommandButtons"></Button>
-                <Button Content="Load Command Buttons" Focusable="False"
-                        Margin="0,4,0,0" Padding="8,4,8,4"
-                        Click="OnLoadCommandButtons"></Button>
-                <TextBlock Margin="0,8,0,0" HorizontalAlignment="Right" Text="{Binding ApplicationVersion}" />
             </StackPanel>
         </Grid>
     </Grid>
