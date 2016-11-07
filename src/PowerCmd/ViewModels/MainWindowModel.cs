@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Input;
 using MyToolkit.Command;
 using MyToolkit.Mvvm;
@@ -66,7 +67,7 @@ namespace PowerCmd.ViewModels
         }
 
         /// <summary>Gets or sets the currentWorkingDirectory. </summary>
-        public string CurrentWindowTitle => "PowerCmd (" + CurrentWorkingDirectory + ")";
+        public string CurrentWindowTitle => "PowerCmd v" + Assembly.GetEntryAssembly().GetName().Version + " (" + CurrentWorkingDirectory + ")";
 
         /// <summary>Gets or sets a value indicating whether a command is running. </summary>
         public bool IsRunning
