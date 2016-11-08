@@ -46,12 +46,21 @@
                 <StackPanel Margin="0,5,0,8">
                     <TextBlock Text="Current Working Directory" FontWeight="Bold" FontSize="16" Margin="0,0,0,4" />
                     <TextBlock Text="{Binding CurrentWorkingDirectory}" Margin="0,0,0,4" />
-                    <Button Content="Open in Explorer" Focusable="False"
-                            Margin="0,4,0,0" Padding="8,4,8,4"
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Button Content="Open in Explorer" Grid.Column="0" Focusable="False"
+                            Margin="0,4,4,0" Padding="8,4,8,4"
                             Command="{Binding OpenCurrentWorkingDirectoryInExplorerCommand}"></Button>
-                    <Button Content="Copy Path" Focusable="False"
-                            Margin="0,4,0,0" Padding="8,4,8,4"
+                        <Button Content="Copy Path" Grid.Column="1" Focusable="False"
+                            Margin="4,4,0,0" Padding="8,4,8,4"
                             Click="OnCopyPath"></Button>
+                    </Grid>
+
                 </StackPanel>
 
                 <ScrollViewer Grid.Row="1" Margin="0,0,0,4"
@@ -152,7 +161,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <avalonedit:TextEditor Background="#2B2B2B" Foreground="#D0D0D0"
+            <avalonedit:TextEditor Background="#002b36" Foreground="#eee8d5"
                                    Padding="8,0,8,8"
                                    HorizontalScrollBarVisibility="Disabled"
                                    VerticalScrollBarVisibility="Auto"

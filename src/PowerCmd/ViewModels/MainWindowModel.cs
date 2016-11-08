@@ -67,7 +67,7 @@ namespace PowerCmd.ViewModels
         }
 
         /// <summary>Gets or sets the currentWorkingDirectory. </summary>
-        public string CurrentWindowTitle => "PowerCmd v" + Assembly.GetEntryAssembly().GetName().Version + " (" + CurrentWorkingDirectory + ")";
+        public string CurrentWindowTitle => "PowerCmd (" + CurrentWorkingDirectory + ") v" + Assembly.GetEntryAssembly().GetName().Version;
 
         /// <summary>Gets or sets a value indicating whether a command is running. </summary>
         public bool IsRunning

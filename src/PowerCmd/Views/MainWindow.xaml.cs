@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using ICSharpCode.AvalonEdit.Highlighting;
 using Microsoft.Win32;
 using MyToolkit.Serialization;
 using MyToolkit.Storage;
 using MyToolkit.Utilities;
 using PowerCmd.Communication;
+using PowerCmd.Extensions.Highlighting;
 using PowerCmd.Extensions.SuggestionProviders;
 using PowerCmd.Models;
 using PowerCmd.ViewModels;
@@ -35,6 +37,7 @@ namespace PowerCmd.Views
 
             CheckForApplicationUpdate();
             LoadSettings();
+            ApplyHighlighter();
 
             Activated += (sender, args) => { Input.Focus(); };
 
@@ -239,6 +242,11 @@ namespace PowerCmd.Views
             var command = (CommandButton)((Button)sender).Tag;
             WriteCommand(command.Text);
             Input.Focus();
+        }
+
+        private void ApplyHighlighter()
+        {
+            Output.TextArea.TextView.LineTransformers.Add(new PathColorizer());
         }
 
         private bool _updateRequested = false;
