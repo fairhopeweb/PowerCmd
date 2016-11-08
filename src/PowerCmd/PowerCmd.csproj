@@ -96,6 +96,7 @@
     <Compile Include="Views\ComboBoxUtilities.cs" />
     <Compile Include="Extensions\SuggestionProviders\DefaultSuggestionProvider.cs" />
     <Compile Include="Extensions\SuggestionProviders\ISuggestionProvider.cs" />
+    <Compile Include="Extensions\Highlighting\PathColorizer.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
