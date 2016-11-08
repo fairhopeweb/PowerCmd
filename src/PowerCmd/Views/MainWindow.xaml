@@ -161,7 +161,7 @@
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
 
-            <avalonedit:TextEditor Background="#00222b" Foreground="#c1bcad"
+            <avalonedit:TextEditor Background="#002b36" Foreground="#eee8d5"
                                    Padding="8,0,8,8"
                                    HorizontalScrollBarVisibility="Disabled"
                                    VerticalScrollBarVisibility="Auto"

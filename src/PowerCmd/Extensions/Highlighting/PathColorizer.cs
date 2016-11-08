@@ -11,7 +11,7 @@ namespace PowerCmd.Extensions.Highlighting
 
         public PathColorizer()
         {
-            _greenBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#40932b"));
+            _greenBrush = new SolidColorBrush(Color.FromRgb(79, 182, 54));
         }
 
         protected override void ColorizeLine(ICSharpCode.AvalonEdit.Document.DocumentLine line)
