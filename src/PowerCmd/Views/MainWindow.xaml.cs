@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using ICSharpCode.AvalonEdit.Highlighting;
 using Microsoft.Win32;
 using MyToolkit.Serialization;
 using MyToolkit.Storage;
@@ -46,6 +45,13 @@ namespace PowerCmd.Views
                 new CdHistoryProvider(Model),
                 new DefaultSuggestionProvider(Model)
             };
+
+            SizeChanged += OnSizeChanged;
+        }
+
+        private void OnSizeChanged(object sender, SizeChangedEventArgs args)
+        {
+            BorderThickness = WindowState == WindowState.Maximized ? new Thickness(8) : new Thickness(0);
         }
 
         private void LoadSettings()
@@ -383,6 +389,21 @@ namespace PowerCmd.Views
         {
             if (e.Key == Key.Enter)
                 OnDirectoryDoubleClick(sender, null);
+        }
+
+        private void OnClose(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void OnMinimize(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
+        }
+
+        private void OnMaximize(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Maximized;
         }
     }
 }

@@ -8,6 +8,6 @@ namespace PowerCmd.Models
 
         public string Value { get; set; }
 
-        public Color Color { get; set; } = Colors.Black;
+        public Color Color { get; set; } = Colors.White;
     }
 }

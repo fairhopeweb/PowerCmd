@@ -18,7 +18,7 @@ namespace PowerCmd.Extensions.OutputAnalyzers
             command.Results.Add(new CommandExecutionResult
             {
                 Key = "Warnings",
-                Color = Colors.Orange,
+                Color = Colors.Khaki,
                 Value = ReadMsBuildCounter(command, "Warning").ToString()
             });
 
@@ -26,7 +26,7 @@ namespace PowerCmd.Extensions.OutputAnalyzers
             command.Results.Add(new CommandExecutionResult
             {
                 Key = "Errors",
-                Color = Colors.Red,
+                Color = Colors.IndianRed,
                 Value = errors.ToString()
             });
 
